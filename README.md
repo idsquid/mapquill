@@ -43,9 +43,9 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by...
 
 Contributions are welcome!
 
-This is my first piece of OSS (perhaps obviously). I'm impatient to see what it can do in the wild, but the code is so far untested, rough, and new. I have a long list of todo's, but am holding off until someone else can tell me "this is essential", or "let that one go". Maybe you?
+This is my first piece of OSS (perhaps obviously). I'm impatient to see what it can do in the wild, but the code is so far untested, rough, yet functional. My list list of todo's includes all kinds of Sassy stuff, and a few known bugs, but I am holding off until someone else can tell me "this is essential", or "that can wait". Any help is appreciated Maybe you?
 
-Please feel free to submit issues with the code through Github's [issue tracker][issues]. For broader disscussion or suggestions, let's connect through [the message board][invite]. Thank you!
+I've added my list of todo's to Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :). For broader disscussion or suggestions, let's connect through [the message board][invite]. Thank you!
 
 ## Concerns
 
