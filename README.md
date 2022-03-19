@@ -79,7 +79,7 @@ Mapquill is licensed under the General Public Use License.
 
 [demo]: https://tradbot.com/demo/dist/#/demo
 [invite]: https://discord.gg/Nu5YuwTd9K
-[issues]: https://github.com/tradbot/mapquill/issues
+[issues]: https://github.com/idsquid/mapquill/issues
 [vue]: https://vuejs.org/
 [osm]: https://www.openstreetmap.org/about
 [leaflet]: https://leafletjs.com/
