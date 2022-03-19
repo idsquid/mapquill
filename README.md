@@ -22,7 +22,7 @@
 >
 > Where you can get updates, create, and share your maps with others, powered by Discord. \([Why discord?](#why-discord) \)
 
-What you'll find in the demo above is a single page application built with [Vue][vue], that features an [Open Street Maps][osm] map, powered by [Leaflet][leaflet], with a little feather at the top. Click the feather, drag the icon where you want it to go, click *do that*, and blammo - something new appears. It's a map pin, courtesy of [fontawesome][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
+What you'll find in the demo above is a single page application built with [Vue][vue], that features an [Open Street Maps][osm] map, powered by [Leaflet][leaflet], with a little feather at the top. Now, if you click the feather, then click *do that*, a new icon should appear. It's a [pin][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
 
 I am not a cartographer. I am a musician turned web developer, who needed a pick-up-put-down project in lockdown, and chose this. I had never worked with Vue or Leaflet, or map symbology before. The first two (turns out) are wonderful, intuitive, rewarding pursuits. The third... is deceptive, and difficult, and I'm pretty sure placing pins on a map, day after day, one after another, is a sign of something.
 
@@ -65,13 +65,13 @@ The only limits would be development time, forming a user base, and a few other 
 
 ### Privacy
 
-In a world of honest actors, our collective potential is limitless (I'm told). As it is, we must reconcile our desire to connect and heal the world, with our potential to be deceived. So I'll tell you, that whole "useRemoteDatabase" thing above, I've already built all that. But you won't find it here. It's somewhere else, and I'm happy to tell you where. Only first, we need to establish we're both honest, and interested in - yes - making the world a better place. That's...
+In a world of honest actors, our cooperative potential is limitless (I'm told). As it is, we must reconcile our desire to connect, with our potential to be deceived. So I'll tell you, that whole "useRemoteDatabase" thing above, I've already built all that. But you won't find it here. It's somewhere else, and I'm happy to tell you where. Only first, we need to establish we're both honest, and interested in cooperating. That's...
 
 ### Why Discord?
 
 > You know, for kids.
 
-Nah. Discord is a funny place, cluttered, and grey. But it does work - really well - and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seemless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you <3
+Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seemless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you <3
 
 thank you for reading.
 
