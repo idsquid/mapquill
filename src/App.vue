@@ -13,7 +13,7 @@
   import AuwalkPost from '@/components/AuwalkPost.js'
   
   export default {
-    name: 'auwalk-vue',
+    name: 'mapquill-beta-vue',
     data: function() {
       return {
         loading: true,
