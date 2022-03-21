@@ -1,6 +1,6 @@
 You have found the demo page :)  
 
-Here you can build icons, and play around with the interface. Some of your work will be saved to your computer's browser (via cookies and localstorage), but this demo is not connected to any external databases. If you would like to share your map, or collaborate with other map makers, please consider joining our guild:
+Here you can build icons, and play around with the interface. This demo is not connected to any external databases, localstorage, or cookies; so your work will not be saved. If you would like to share your map, or collaborate with other map makers, please consider joining our guild:
 
 <a href="https://discord.gg/Nu5YuwTd9K" target="_blank">Your Invitation</a>
 
