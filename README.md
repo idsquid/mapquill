@@ -18,9 +18,9 @@
 > **But first:** 
 > this project has a message board!
 >
-> [follow this link to the message board][invite] 
+> [follow this link to the invite][invite] 
 >
-> Where you can get updates, create, and share your maps with others, powered by Discord. \([Why discord?](#why-discord) \)
+> where you can get updates, create, and share your maps with others, powered by discord. \([Why discord?](#why-discord) \)
 
 What you'll find in the demo above is a single page application built with [Vue][vue], that features an [Open Street Maps][osm] map, powered by [Leaflet][leaflet], with a little feather at the top. Now, if you click the feather, then click *do that*, a new icon should appear. It's a [pin][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
 
