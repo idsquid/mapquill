@@ -69,7 +69,7 @@ In a world of honest actors, our cooperative potential is limitless (I'm told). 
 
 > You know, for kids.
 
-Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seemless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you <3
+Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seamless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you <3
 
 thank you for reading.
 
