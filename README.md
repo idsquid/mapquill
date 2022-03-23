@@ -1,6 +1,6 @@
 # mapquill
 
-**Pandemic Project Alert.** This was originally a utility for drawing clickable icons on a map, and for populating said icons with audio recordings local to that area. Now, it looks something like this:
+**Pandemic Project Alert.** This is a utility for drawing clickable icons on a map, and for populating said icons with audio recordings local to that area. It looks something like this:
 
 ### Demo
 
@@ -63,15 +63,15 @@ The only limits would be development time, forming a user base, and a few other 
 
 ### Privacy
 
-In a world of honest actors, our cooperative potential is limitless (I'm told). As it is, we must reconcile our desire to connect, with our potential to be deceived. So I'll tell you, that whole "useRemoteDatabase" thing above, I've already built all that. But you won't find it here. It's somewhere else, and I'm happy to tell you where. Only first, we need to establish we're both honest, and interested in cooperating. That's...
+In a world of honest actors, our cooperative potential is limitless (I'm told). As it is, we must reconcile our desire to connect, with our potential to be deceived. So I'll tell you, that whole "useRemoteDatabase" thing above, I've already built all that. But you won't find it here. It's somewhere else, and I'm happy to tell you where. Only first, we need to establish we're both honest, and interested in cooperating. That's why discord...
 
 ### Why Discord?
 
 > You know, for kids.
 
-Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seamless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you <3
+Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seamless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you.
 
-thank you for reading.
+Thank you for reading.
 
 ## License
 
