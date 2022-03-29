@@ -1,43 +1,56 @@
 # mapquill
 
-**Pandemic Project Alert.** This is a utility for drawing clickable icons on a map, and for populating said icons with audio recordings local to that area. It looks something like this:
+**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating them with audio recordings local to that area. But when it came to the question of what these icons should actually *look like* things got complicated. I figured either they should all look the same, or should somehow represent the content hidden inside. In the end (not that it's over) I chose the second, because sameness is boring, and keeping things interesting is what pandemics are all about. Ha!
+
+So here we are, two years later, and mapquill looks something like this:
 
 ### Demo
 
 [this is the demo][demo]
 
+It supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. ![turtle image](/public/image-turtle.png) like me!
+
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
+1. [Installation](#installation)
+2. [How It Works](#how-it-works)
 3. [Contributing](#contributing)
 4. [Concerns](#concerns)
 
-### Introduction
-
-> **But first:** 
-> this project has a message board!
->
-> [follow this link to the invite][invite] 
->
-> where you can get updates, create, and share your maps with others, powered by discord. \([Why discord?](#why-discord) \)
-
-What you'll find in the demo above is a single page application built with [Vue][vue], that features an [Open Street Maps][osm] map, powered by [Leaflet][leaflet], with a little feather at the top. Now, if you click the feather, then click *do that*, a new icon should appear. It's a [pin][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
-
-I am not a cartographer. I am a musician turned web developer, who needed a pick-up-put-down project in lockdown, and chose this. I had never worked with Vue or Leaflet, or map symbology before. The first two (turns out) are wonderful, intuitive, rewarding pursuits. The third... is deceptive, and difficult, and I'm pretty sure placing pins on a map, day after day, one after another, is a sign of something.
-
-But the pandemic raged on, giving me time to fiddle, and to dig deeper. I added image file support, hoping visuals might push my visual variables beyond their isolated corkboard. I added text file support, wondering if maybe these maps could tell a literal story. I considered designing fifty original icons that could be used selectively to distinguish point A from point B. And finally, landed on voxels. Of course that's when things got really weird, but I'll leave off there. It's time for this project to be released. So, here it is!
-
 ## Installation
 
-This project was built with Vue2 through the Vue Cli v5.0.0. The demo above was compiled by Node v16.10.0. If that's total gibberish, but you'd like to know more, please consider reaching out through [the guild][invite] re: programming basics. Otherwise you should be able to clone this repository, and run the following from your terminal:
+This project was built with Vue2 through the Vue Cli v5.0.0. The demo above was compiled by Node v16.10.0. It depends on [Open Street Maps][osm], and [Leaflet][leaflet] to power the map itself. If that's total gibberish, but you'd like to know more, please consider reaching out through [the app's discord guild][invite] re: programming basics. Otherwise you should be able to clone this repository, go to the project folder, and run the following from your terminal:
 
 ```
 npm install
 npm run serve
 ```
 
-Amazing, when it works. If it doesn't (*but it should*) please let me know by...
+Amazing, when it works. If it doesn't (*but it should*) please let me know by [contributing](#contributing).
+
+## How It Works
+
+> **But first:** 
+> yes, this project has a discord board!
+>
+> [follow this link to the invite][invite] 
+>
+> where you can get updates, create, and share your maps with others. \([Why discord?](#why-discord) \)
+
+**Follow these steps to add a marker to the map:**
+
+• ![quill icon](/public/icon-feather.png) Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your area of interest. You can then drag-and-drop the quill marker to its final location.
+• ![popup icon](/public/icon-popup.png) A popup will ask you to "Do That". This adds a new marker to the map!
+• ![edit icon](/public/icon-edit.png) The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
+• ![map icon](/public/icon-map.png) Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
+
+**Gotta Voxel**
+
+What you'll find in the demo above is a single page application built with [Vue][vue], that , with a little feather at the top. Now, if you click the feather, then click *do that*, a new icon should appear. It's a [pin][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
+
+I am not a cartographer. I am a musician turned web developer, who needed a pick-up-put-down project in lockdown, and chose this. I had never worked with Vue or Leaflet, or map symbology before. The first two (turns out) are wonderful, intuitive, rewarding pursuits. The third... is deceptive, and difficult, and I'm pretty sure placing pins on a map, day after day, one after another, is a sign of something.
+
+But the pandemic raged on, giving me time to fiddle, and to dig deeper. I added image file support, hoping visuals might push my visual variables beyond their isolated corkboard. I added text file support, wondering if maybe these maps could tell a literal story. I considered designing fifty original icons that could be used selectively to distinguish point A from point B. And finally, landed on voxels. Of course that's when things got really weird, but I'll leave off there. It's time for this project to be released. So, here it is!
 
 ## Contributing
 
