@@ -1,6 +1,6 @@
 # mapquill
 
-**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating these icons with audio recordings local to that area. But when it came to the question of what these icons should actually *look like* things got complicated. I figured either they should all look the same, or should somehow represent the content hidden inside. In the end (not that it's over) I chose the second, because sameness is boring, and keeping things interesting is what pandemics are all about. Ha!
+**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating these icons with audio recordings local to that area. But when it came to the question of what these icons should *look like* things got complicated. I figured either they should all look the same, or should somehow represent the content hidden inside. In the end (not that it's over) I chose the second, because sameness is boring, and keeping things interesting is what pandemics are all about. Ha!
 
 So here we are, two years later, and mapquill looks something like this:
 
@@ -8,7 +8,7 @@ So here we are, two years later, and mapquill looks something like this:
 
 [this is the demo][demo]
 
-It now supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. 
+It now supports audio, images, and text files, AND includes an icon editor, for building fun little turtles
 
 <img src="/public/image-turtle.png" width="100" height="100"> like me!
 
