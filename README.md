@@ -1,6 +1,6 @@
 # mapquill
 
-**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating them with audio recordings local to that area. But when it came to the question of what these icons should actually *look like* things got complicated. I figured either they should all look the same, or should somehow represent the content hidden inside. In the end (not that it's over) I chose the second, because sameness is boring, and keeping things interesting is what pandemics are all about. Ha!
+**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating these icons with audio recordings local to that area. But when it came to the question of what these icons should actually *look like* things got complicated. I figured either they should all look the same, or should somehow represent the content hidden inside. In the end (not that it's over) I chose the second, because sameness is boring, and keeping things interesting is what pandemics are all about. Ha!
 
 So here we are, two years later, and mapquill looks something like this:
 
@@ -37,7 +37,7 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 >
 > [follow this link to the invite][invite] 
 >
-> where you can get updates, create, and share your maps with others. \([Why discord?](#why-discord) \)
+> where you can get updates, create, and share your maps with others. \([Why discord?](#privacy) \)
 
 ### Follow these steps to add a marker to the map:
 
@@ -48,11 +48,13 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="35" height="35"> Markers appears as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Simple! Let's stop there! Or... not. From the edit page, click the "edit" link below the icon preview, and you'll be taken to new page where you can realign the image, or "Goto Voxel Mode"...
+<img src="/public/icon-pin.png" width="35" height="35"> Markers appear as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Simple! Let's stop there! Or... not. 
+
+Click the "edit" link below the icon preview, and you'll be taken to new page where you can realign things, or "Goto Voxel Mode"...
 
 <img src="/public/image-voxels.png" width="300" height="151">
 
-Whoa. Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Here you'll find a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent space on space in space, on a map. 
+Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Voxel Mode offers a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent space on space in space, on a map. 
 
 ## Contributing
 
@@ -64,29 +66,13 @@ I've added my list of todo's to Github's [issue tracker][issues]. Please feel fr
 
 ### Shared Content
 
-This application does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? To do so would mean connecting the application to a remote database, somewhere, and agreeing how this content would be sourced, and protected. 
-
-```
-if (useRemoteDatabase) {
-    // here we would save to a shared database
-} else {
-    // this is what happens now
-}
-```
-
-The only limits would be development time, and a few pragmatic concerns, like privacy. 
+This application does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? The only limits would be development time, and a few pragmatic concerns, like privacy. 
 
 ### Privacy
 
-In a world of honest actors, our cooperative potential is limitless (I'm told). As it is, we must reconcile our desire to connect, with our potential to be deceived. So I'll tell you, that whole "useRemoteDatabase" thing above, I've already built all that. But you won't find it here. It's somewhere else, and I'm happy to tell you where. Only first, we need to establish we're both honest, and interested in cooperating. That's why discord...
+In a world of honest actors, our cooperative potential is limitless (I'm told). As it is, we must reconcile our desire to connect, with our potential to be deceived. That's why Discord. It's is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for testing and developing an app like this. For instance, limiting access to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seamless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you.
 
-### Why Discord?
-
-> You know, for kids.
-
-Nah. Discord is a funny place, cluttered, and grey. But it does work well, and has lots of useful features for developers. For instance, limiting access to an application, like Mapquill, to trusted users is simple and straightforward. Also, connecting Discord to trusted applications is fairly easy to do. That means that updating a map could update the message board as well, making collaboration seamless and fun. In theory. I haven't built (okay maybe some) any of these connections yet, but I'd like to, with you.
-
-Thank you for reading.
+Thanks for reading!
 
 ## License
 
