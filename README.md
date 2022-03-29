@@ -8,7 +8,7 @@ So here we are, two years later, and mapquill looks something like this:
 
 [this is the demo][demo]
 
-It supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. ![turtle image](/public/image-turtle.png) like me!
+It supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. <img src="/public/image-turtle.png" width="25" height="25"> like me!
 
 ## Table of Contents
 
