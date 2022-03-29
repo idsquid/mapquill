@@ -8,7 +8,7 @@ So here we are, two years later, and mapquill looks something like this:
 
 [this is the demo][demo]
 
-The app now supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. 
+It now supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. 
 
 <img src="/public/image-turtle.png" width="100" height="100"> like me!
 
@@ -21,7 +21,7 @@ The app now supports audio, images, and text files, AND includes an icon editor,
 
 ## Installation
 
-This project was built with Vue2 through the Vue Cli v5.0.0. The demo above was compiled by Node v16.10.0. It depends on [Open Street Maps][osm], and [Leaflet][leaflet] to power the map itself. If that's total gibberish, but you'd like to know more, please consider reaching out through [the app's discord guild][invite] re: programming basics. Otherwise you should be able to clone this repository, go to the project folder, and run the following from your terminal:
+This project was built with Vue2 through the Vue Cli v5.0.0. The demo above was compiled by Node v16.10.0. It depends on [Open Street Maps][osm], [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] to power the map itself, and [fontawesome][fontawesome] to provide the icons. If that's total gibberish, but you'd like to know more, please consider reaching out through [the app's discord guild][invite] re: programming basics. Otherwise you should be able to clone this repository, go to the project folder, and run the following from your terminal:
 
 ```
 npm install
@@ -39,20 +39,20 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 >
 > where you can get updates, create, and share your maps with others. \([Why discord?](#why-discord) \)
 
-**Follow these steps to add a marker to the map:**
+### Follow these steps to add a marker to the map:
 
-- <img src="/public/icon-feather.png" width="40" height="40"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your area of interest. You can then drag-and-drop the quill marker to its final location.
+- <img src="/public/icon-feather.png" width="40" height="40"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
 - <img src="/public/icon-popup.png" width="40" height="40"> A popup will ask you to "Do That". This adds a new marker to the map!
 - <img src="/public/icon-edit.png" width="40" height="40"> The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
 - <img src="/public/icon-map.png" width="40" height="40">  Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
 
-**Gotta Voxel**
+### Editing the Icon
 
-What you'll find in the demo above is a single page application built with [Vue][vue], that , with a little feather at the top. Now, if you click the feather, then click *do that*, a new icon should appear. It's a [pin][fontawesome]. This is what cartographers call a [visual variable][axis map tutorial]. Right? All you cartographers out there?
+<img src="/public/icon-pin.png" width="40" height="40"> Markers appears as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Simple! Let's stop there! Or... not. From the edit page, click the "edit" link below the icon preview, and you'll be taken to new page where you can realign the image, or "Goto Voxel Mode".
 
-I am not a cartographer. I am a musician turned web developer, who needed a pick-up-put-down project in lockdown, and chose this. I had never worked with Vue or Leaflet, or map symbology before. The first two (turns out) are wonderful, intuitive, rewarding pursuits. The third... is deceptive, and difficult, and I'm pretty sure placing pins on a map, day after day, one after another, is a sign of something.
+<img src="/public/image-voxels.png">
 
-But the pandemic raged on, giving me time to fiddle, and to dig deeper. I added image file support, hoping visuals might push my visual variables beyond their isolated corkboard. I added text file support, wondering if maybe these maps could tell a literal story. I considered designing fifty original icons that could be used selectively to distinguish point A from point B. And finally, landed on voxels. Of course that's when things got really weird, but I'll leave off there. It's time for this project to be released. So, here it is!
+Whoa. Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Here you'll find a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent space on space in space, on a map. 
 
 ## Contributing
 
@@ -74,7 +74,7 @@ if (useRemoteDatabase) {
 }
 ```
 
-The only limits would be development time, forming a user base, and a few other pragmatic concerns, like privacy. 
+The only limits would be development time, and a few pragmatic concerns, like privacy. 
 
 ### Privacy
 
@@ -98,5 +98,6 @@ Mapquill is licensed under the General Public Use License.
 [vue]: https://vuejs.org/
 [osm]: https://www.openstreetmap.org/about
 [leaflet]: https://leafletjs.com/
+[clusterer]: https://github.com/Leaflet/Leaflet.markercluster
 [fontawesome]: https://fontawesome.com/v5/icons/map-pin?s=solid
 [axis map tutorial]: https://www.axismaps.com/guide/visual-variables#:~:text=Visual%20variables%20are%20%E2%80%9Cthe%20differences,graphic%20symbols%20can%20be%20distinguished.
