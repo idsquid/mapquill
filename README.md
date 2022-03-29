@@ -8,7 +8,7 @@ So here we are, two years later, and mapquill looks something like this:
 
 [this is the demo][demo]
 
-It supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. <img src="/public/image-turtle.png" width="25" height="25"> like me!
+It supports audio, images, and text files, AND includes an icon editor, for building fun little turtles. <img src="/public/image-turtle.png" width="40" height="40"> like me!
 
 ## Table of Contents
 
@@ -39,10 +39,10 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 
 **Follow these steps to add a marker to the map:**
 
-• ![quill icon](/public/icon-feather.png) Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your area of interest. You can then drag-and-drop the quill marker to its final location.
-• ![popup icon](/public/icon-popup.png) A popup will ask you to "Do That". This adds a new marker to the map!
-• ![edit icon](/public/icon-edit.png) The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
-• ![map icon](/public/icon-map.png) Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
+- <img src="/public/icon-feather.png" width="40" height="40"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your area of interest. You can then drag-and-drop the quill marker to its final location.
+- <img src="/public/icon-popup.png" width="40" height="40"> A popup will ask you to "Do That". This adds a new marker to the map!
+- <img src="/public/icon-edit.png" width="40" height="40"> The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
+- <img src="/public/icon-map.png" width="40" height="40">  Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
 
 **Gotta Voxel**
 
