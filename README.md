@@ -41,16 +41,16 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 
 ### Follow these steps to add a marker to the map:
 
-- <img src="/public/icon-feather.png" width="40" height="40"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
-- <img src="/public/icon-popup.png" width="40" height="40"> A popup will ask you to "Do That". This adds a new marker to the map!
-- <img src="/public/icon-edit.png" width="40" height="40"> The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
-- <img src="/public/icon-map.png" width="40" height="40">  Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
+- <img src="/public/icon-feather.png" width="35" height="35"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
+- <img src="/public/icon-popup.png" width="35" height="35"> A popup will ask you to "Do That". This adds a new marker to the map!
+- <img src="/public/icon-edit.png" width="35" height="35"> The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
+- <img src="/public/icon-map.png" width="35" height="35">  Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="40" height="40"> Markers appears as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Simple! Let's stop there! Or... not. From the edit page, click the "edit" link below the icon preview, and you'll be taken to new page where you can realign the image, or "Goto Voxel Mode".
+<img src="/public/icon-pin.png" width="35" height="35"> Markers appears as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Simple! Let's stop there! Or... not. From the edit page, click the "edit" link below the icon preview, and you'll be taken to new page where you can realign the image, or "Goto Voxel Mode"...
 
-<img src="/public/image-voxels.png">
+<img src="/public/image-voxels.png" width="300" height="151">
 
 Whoa. Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Here you'll find a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent space on space in space, on a map. 
 
