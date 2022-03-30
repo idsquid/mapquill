@@ -36,13 +36,13 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display the image instead. The **edit** link below the icon preview will take you to new page, where you can realign things, or go to...
+<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display the image instead. The **edit** link below the icon preview will take you to a new page, where you can realign things, or go to...
 
 ### Voxel Mode
 
 <img src="/public/image-voxels.png" width="300" height="151">
 
-Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill now offers a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent media content on a map. 
+Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill presents a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent media content on a map. 
 
 ## Contributing
 
