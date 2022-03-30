@@ -30,13 +30,13 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 ## Building Icons
 
 1. <img src="/public/icon-feather.png" width="35" height="35"> The quill at the top of your screen opens the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
-2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map!
-3. <img src="/public/icon-edit.png" width="35" height="35"> The new marker has a new popup. And this symbol leads to the edit screen!
+2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map.
+3. <img src="/public/icon-edit.png" width="35" height="35"> The new marker has a new popup. And this symbol leads to the edit screen.
 4. <img src="/public/icon-map.png" width="35" height="35">  This button will bring you back to the map. But first...
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display it instead. The **edit** link below the icon preview will take you to new page, where you can realign things, or go to...
+<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display the image instead. The **edit** link below the icon preview will take you to new page, where you can realign things, or go to...
 
 ### Voxel Mode
 
