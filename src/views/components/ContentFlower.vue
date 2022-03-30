@@ -39,7 +39,7 @@ export default {
 <style lang="scss">
 /*  $content-edge: 10em;*/
   .content-flower.circle, .use-content-flower-circle .content-flower {
-    @include on-circle($item-count: 5.5, $circle-size: 8em, $item-size: 4em, $rot: 120, $dir: -1); 
+    @include on-circle($item-count: 5.5, $circle-size: 8em, $item-size: 4em, $rot: 45, $dir: -1); 
 /*    overflow: hidden;*/
     @include column(flex-end, center);
     perspective: 400em;
@@ -59,7 +59,7 @@ export default {
 */
     }
   }
-  .content-flower.grid, .got-voxels  .content-flower {
+  .content-flower.grid {
     position: absolute;
     z-index: -1;
     width: 100%; height: 100%;
@@ -87,6 +87,13 @@ export default {
           grid-row-start: 3;
         }
     }  
+  }
+  .got-voxels  .content-flower {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+/*    transform: scale(.5);*/
   }
   .flower-post {
     box-sizing: border-box;

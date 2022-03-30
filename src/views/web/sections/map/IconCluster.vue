@@ -8,11 +8,13 @@
   </div>
   
   <div class="content-info" v-if="allContentPosts.length">
-    {{ allContentPosts.length }} <v-icon name="file" style="fill:white;"></v-icon>
+    {{ allContentPosts.length }}
+<!--    <v-icon name="camera" style="fill:white;"></v-icon>-->
   </div>
   
   <div class="cluster-info">
-    {{ clusterChildren.length }} <v-icon name="home" style="fill:white;"></v-icon>
+    {{ clusterChildren.length }} 
+<!--    <v-icon name="home" style="fill:white;"></v-icon>-->
   </div>
 </div>
 </template>
@@ -44,7 +46,7 @@ export default Vue.extend({
   computed: {
     topClass() {
       return {
-        'use-content-flower-circle': this.useContentPosts.length > 0 && this.structurePosts.length == 0,
+        'use-content-flower-circle': this.useContentPosts.length > 0,
         'got-content': this.useContentPosts.length > 0,
         'no-visible-content': this.useContentPosts.length == 0,
         'got-voxels': this.structurePosts.length > 0,
@@ -128,18 +130,19 @@ $pieSize: 8em;
   z-index: -2;
   width: $pieSize;
   height: $pieSize;
-  &.use-content-flower-circle {background-color: #33333366; border-radius: 10em;
+  overflow: hidden;
+  border-radius: 4em 0;
+  &.use-content-flower-circle {background-color: #004b99dd; 
   }
   &.got-nothing {background-color: $markerBlueFaded; box-shadow: none; border: 1px dashed $darkblue; border-radius: 10em;
   }
   &.got-voxels.no-visible-content {
-    border-radius: 10em;
+/*    border-radius: 10em 0;*/
     background-color: #eeeeee44;
   }
   background-color: $medblue;
   box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgb(0 0 0 / 70%);
-  border-radius: 8px;
+  box-shadow: 6px 18px 11px rgb(0 0 0 / 36%);
   color: white;
   
   // LAYOUT
@@ -187,22 +190,26 @@ $pieSize: 8em;
   .cluster-info {
     background-color: $darkblue;
     position: absolute;
-    right: 0em;
-    top: 0em;
+    left: 0em;
+    bottom: 0em;
     z-index: 1;
     color: $lightwhite;
     font-weight: bold;
     text-shadow: -2px 2px 4px black;
-    font-size: 8px;
+    font-size: 14px;
     margin: 0 0 -1px -1px;
     padding: .25em;
     border-radius: 0em;
+    min-width: 1em;
+    text-align: center;
   }
   .content-info {
     @extend .cluster-info;
-    top: auto;
-    bottom: 0;
     background: $lightbrown;
+    top: 0;
+    bottom: auto;
+    right: 0;
+    left: auto;
   }
 
 
