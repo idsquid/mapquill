@@ -29,28 +29,28 @@ Amazing, when it works. If it doesn't (*but it should*) please let me know by [c
 
 ## Building Icons
 
-1. <img src="/public/icon-feather.png" width="35" height="35"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
-2. <img src="/public/icon-popup.png" width="35" height="35"> A popup will ask you to "Do That". This adds a new marker to the map!
-3. <img src="/public/icon-edit.png" width="35" height="35"> The new marker - its content and appearance - can be edited by first clicking the marker, and then clicking the edit symbol that appears below. You've found the edit screen!
-4. <img src="/public/icon-map.png" width="35" height="35">  Return to the map by clicking the map symbol, or hang out here awhile. You can add/edit content, and change the icon's appearance to represent the content within.
+1. <img src="/public/icon-feather.png" width="35" height="35"> The quill at the top of your screen opens the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
+2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map!
+3. <img src="/public/icon-edit.png" width="35" height="35"> The new marker has a new popup. And this symbol leads to the edit screen!
+4. <img src="/public/icon-map.png" width="35" height="35">  This button will bring you back to the map. But first...
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="35" height="35"> Markers appear as pins when first created. If you add a post, however, and that post happens to be an image, the icon will become a zoomed-in version of that image. Click the "edit" link below the icon preview, and you'll be taken to new page where you can realign things, or go to...
+<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display it instead. The **edit** link below the icon preview will take you to new page, where you can realign things, or go to...
 
 ### Voxel Mode
 
 <img src="/public/image-voxels.png" width="300" height="151">
 
-Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill now offers a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent space on space in space, on a map. 
+Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill now offers a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent media content on a map. 
 
 ## Contributing
 
 Contributions are welcome!
 
-I've added a short list of todo's in Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :). For broader disscussion or suggestions re: the code itself, I made a [message board][invite]. This is my first piece of OSS (perhaps obviously), so if there's a better way to do *any* of this let me know. 
+I've added a short list of todo's in Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :) For broader disscussion or suggestions re: the code itself, I made a [message board][invite]. This is my first piece of OSS (perhaps obviously), so if there's a better way to do *any* of this let me know. 
 
-For now I'm thinking Discord could work well to foster discussion, and perhaps be integrated into collaborative maps. Mapquill does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? I'd love to discuss safe, respectful ways of doing this, and look forward to your input. 
+For now I'm thinking Discord could work well to foster discussion, organize beta testing, and perhaps be integrated into collaborative maps. Mapquill does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? I'd love to discuss safe, respectful ways of doing this, and look forward to your input. 
 
 > Here's that [invite][invite] again. 
 
