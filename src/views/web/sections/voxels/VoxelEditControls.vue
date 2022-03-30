@@ -1,5 +1,9 @@
 <template>
 <div class="vec voxel-edit-controls" v-if="thePost" :class="{'edits-photo': thePost.cubeScale > 720, 'edits-vox': thePost.cubeScale < 720}">
+  <div class="vox-cam-toggle">
+      <div v-if="thePost.cubeScale < 721" class="button" @click="thePost.cubeScale = 721">Goto Photo Mode</div>
+      <div v-else class="button" @click="thePost.cubeScale = 120">Goto Voxel Mode</div>
+  </div>
   <div class="sliders">
     <div class="controller">
       <input v-if="thePost.cubeScale > 720" type="range" icon="font-scaler" min="721" max="1440" v-model="fontSlider">
@@ -29,6 +33,7 @@
     
 <!--     <a class="a-link" @click="clearCubes">clear all cubes</a>-->
   </div>
+  
   <VoxelCoder @triggerAction="(pos) => $emit('triggerAction', pos)" v-if="coderOpen">
     <v-icon :name="editIcons[selectedControl]"></v-icon>
   </VoxelCoder>
@@ -42,6 +47,7 @@
     <voxel-canvas :thePost="thePost"></voxel-canvas>
     <label>Preview</label>
   </div>
+  
 </div>
 <div v-else>
   no post
@@ -126,9 +132,10 @@ export default {
     font-size: 12px;
     grid-template: repeat(99, auto) / none;
     background-color: #ffffffaa;
+    grid-template-areas: 'toggle';
     @include phone-only {
       grid-template: repeat(3, auto) / repeat(3, 33%);
-      grid-template-areas: 'slider slider slider' 'colors actions preview' 'coder coder coder';
+      grid-template-areas: '. . toggle' 'slider slider slider' 'colors actions preview' 'coder coder coder';
       .sliders {
         grid-area: slider;
         .controller {
@@ -158,9 +165,12 @@ export default {
       }
     }
     &.edits-vox {
-      .vox-cam-toggle {
-        display: none;
-      }
+      
+    }
+    
+    .vox-cam-toggle {
+      grid-area: toggle;
+      
     }
     
     .sliders, .color-options, .edit-options {
@@ -168,6 +178,7 @@ export default {
     }
     
   }
+  
 /*
   .controller {
     @include column(center, center);
