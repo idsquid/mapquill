@@ -6,7 +6,7 @@
       <voxel-canvas :thePost="thePost"></voxel-canvas>
     </div>
     
-    <voxel-edit-controls :colors="colors" :colorCodes="colorCodes" @newColor="selectedColor = $event" :editControls="editControls" :editIcons="editIcons" @newControl="selectedControl = $event"></voxel-edit-controls>
+    <voxel-edit-controls :colors="colors" :colorCodes="colorCodes" @newColor="selectedColor = $event" :editControls="editControls" :editIcons="editIcons" @newControl="selectedControl = $event" @triggerAction="(pos) => triggerEditAction(pos)"></voxel-edit-controls>
   </div>
 </template>
 
@@ -116,7 +116,25 @@ export default {
                }
           });
         }
+      },
+    triggerEditAction(pos) {
+      if (this.activeControl == 'create') {
+        this.createCubeAt(pos)
+      } else {
+        let cubeIndex = null
+        for (var i=0; i<this.thePost.cubeData.length; i++) {
+           const cc = this.thePost.cubeData[i]
+           if (cc[0] == pos.x && cc[1] == pos.y && cc[2] == pos.z) {
+             cubeIndex = i
+             break;
+           }
+        }
+        if (cubeIndex) {
+          this.onCubeClicked(cubeIndex)
+        }
       }
+      
+    }
   }
 }
 
@@ -130,13 +148,13 @@ export default {
     grid-template-columns: [col-start] 1fr 20% [col-end];
     grid-template-areas: ". controls" ". .";
     @include phone-only {
-      grid-template-rows: [row-start] 20% 1fr [row-end];
+      grid-template-rows: [row-start] auto 1fr [row-end];
       grid-template-columns: [col-start] 1fr [col-end];
       grid-template-areas: "controls view"
     }
     
     .voxel-canvas {
-      margin: 20% 0;
+      margin: 10% 0;
       overflow: hidden !important;
       @include phone-only {
         margin: 0;

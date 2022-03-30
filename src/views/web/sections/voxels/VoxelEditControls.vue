@@ -2,33 +2,42 @@
 <div class="vec voxel-edit-controls" v-if="thePost" :class="{'edits-photo': thePost.cubeScale > 720, 'edits-vox': thePost.cubeScale < 720}">
   <div class="sliders">
     <div class="controller">
-      <input v-if="thePost.cubeScale > 720" type="range" name="font-scaler" min="721" max="1440" v-model="fontSlider">
-      <input v-else type="range" name="font-scaler" min="10" max="720" v-model="fontSlider">
+      <input v-if="thePost.cubeScale > 720" type="range" icon="font-scaler" min="721" max="1440" v-model="fontSlider">
+      <input v-else type="range" icon="font-scaler" min="10" max="200" v-model="fontSlider">
       <label for="font-scaler">Scale</label>
     </div>
     <div class="controller">
-      <input type="range" name="horz-scaler" :min="-adjustMinMax" :max="adjustMinMax" v-model="horzSlider" step="1">
+      <input type="range" icon="horz-scaler" :min="-adjustMinMax" :max="adjustMinMax" v-model="horzSlider" step="1">
       <label for="font-scaler">Left/Right</label>
     </div>
     <div class="controller">
-      <input type="range" name="vert-scaler" :min="-adjustMinMax" :max="adjustMinMax" v-model="vertSlider" step="1">
+      <input type="range" icon="vert-scaler" :min="-adjustMinMax" :max="adjustMinMax" v-model="vertSlider" step="1">
       <label for="vert-scaler">Up/Down</label>
     </div>
   </div>
   <div class="color-options">
     <div v-for="(color, i) in colorCodes" :key="color" class="swatch" :class="{active: selectedColor == i}" @click="selectColor(i)">
-      <v-icon name="circle" :style="'fill:'+color"></v-icon>
+      <v-icon name="circle" :style="'fill:' + color"></v-icon>
     </div>
   </div>
   <div class="edit-options">
     <div v-for="(cont, i) in editControls" :key="cont + '-' + i" class="swatch" :class="{active: selectedControl == i}" @click="selectControl(i)">
       <v-icon :name="editIcons[i]"></v-icon>
     </div>
-    <div class="button" @click="thePost.cubeScale = 721">Goto Photo Mode</div>
+    <div class="coder-toggle swatch" :class="{open: coderOpen}" @click="coderOpen = !coderOpen"><v-icon name="code"></v-icon></div>
+    <div class="swatch delete-all" @click="clearCubes"><v-icon name="ban" style="fill: #bf272c"></v-icon></div>
+    
+<!--     <a class="a-link" @click="clearCubes">clear all cubes</a>-->
   </div>
+  <VoxelCoder @triggerAction="(pos) => $emit('triggerAction', pos)" v-if="coderOpen">
+    <v-icon :name="editIcons[selectedControl]"></v-icon>
+  </VoxelCoder>
+ 
+<!--
   <div class="vox-cam-toggle">
     <div class="button" @click="thePost.cubeScale = 120">Goto Voxel Mode</div>
   </div>
+-->
   <div class="preview">
     <voxel-canvas :thePost="thePost"></voxel-canvas>
     <label>Preview</label>
@@ -41,17 +50,20 @@
 
 <script>
 import VoxelCanvas from '@/views/web/sections/voxels/VoxelCanvas.vue'  
+import VoxelCoder from '@/views/web/sections/voxels/VoxelCoder.vue' 
 export default {
   name: 'voxel-edit-controls',
   props: ['colors', 'colorCodes', 'currentColor', 'editControls', 'editIcons'],
-  components: {VoxelCanvas},
+  components: {VoxelCanvas, VoxelCoder},
   data() {
     return {
       adjustMinMax: 500,
       selectedColor: 0,
-      selectedControl: 0
+      selectedControl: 0,
+      coderOpen: false
     }
   },
+  emits: ['newColor', 'newControl', 'triggerAction'],
   computed: {
     thePost() {
        return this.$store.getters['posts/structureById'](this.$route.params.audioId)
@@ -94,6 +106,15 @@ export default {
     selectControl(i) {
       this.selectedControl = i
       this.$emit('newControl', i)
+    },
+    clearCubes() {
+      const doIt = confirm("Are you sure? This will delete all the cubes...")
+      if (doIt) {
+      const thePost = this.thePost
+      thePost['cubeData'] = []
+      thePost['cubeScale'] = 100
+      thePost['horzAdjust'] = 0
+      }
     }
   }
 }
@@ -105,10 +126,9 @@ export default {
     font-size: 12px;
     grid-template: repeat(99, auto) / none;
     background-color: #ffffffaa;
-    padding: 1em;
     @include phone-only {
-      grid-template: 1fr 1fr / repeat(3, 33%);
-      grid-template-areas: 'slider slider slider' 'colors actions preview';
+      grid-template: repeat(3, auto) / repeat(3, 33%);
+      grid-template-areas: 'slider slider slider' 'colors actions preview' 'coder coder coder';
       .sliders {
         grid-area: slider;
         .controller {
@@ -128,6 +148,8 @@ export default {
     }
     & > div {
       margin: .5em 0;
+/*      padding: 5px;*/
+      box-sizing: border-box;
     }
     
     &.edits-photo {
@@ -139,6 +161,10 @@ export default {
       .vox-cam-toggle {
         display: none;
       }
+    }
+    
+    .sliders, .color-options, .edit-options {
+      padding: 0 5px;
     }
     
   }
@@ -155,9 +181,16 @@ export default {
   }
   
   .edit-options {
-    padding: 0 2em;
-    .button {
-      clear: both;
+    position: relative;
+    .a-link {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 1em 0;
+      color: $medpurple;
+/*      border: 1px solid $lightred;*/
+/*      padding: 3px;*/
+      text-decoration: underline;
     }
   }
   .swatch {
@@ -171,10 +204,36 @@ export default {
     border-left-color: $darkwhite;
     border-top-color: $lightwhite;
     cursor: pointer;
-    &.active {
-      box-shadow: 0 0 2px #333 inset;
+    &.active, &.open {
+      box-shadow: 0 0 3px black inset;
       border: none;
-      background-color: $lightwhite;
+      background-color: #2196f33e;
+    }
+    
+    &.coder-toggle {
+/*      margin-left: 1em;*/
+/*      border-radius: 10px;*/
+      color: $medblue;
+      width: 3em;
+/*      background-color: $lightgrey;*/
+      clear: both;
+      margin-right: 5px;
+      &.open {
+        background-color: $lightyellow;
+        transform: scale(.9);
+      }
+    }
+    &.delete-all, &.coder-toggle {
+      margin-top: 5px;
+      border-radius: 3px;
+      border-top-color: $darkyellow;
+      border-left-color: $darkyellow;
+/*      border-style: dashed;*/
+      background-color: $medwhite;
+/*      clear: both;*/
+/*      float: right;*/
+/*      border-color: transparent;*/
+/*      background-color: transparent;*/
     }
   }
   

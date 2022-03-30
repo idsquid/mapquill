@@ -21,6 +21,7 @@ local/
 #
 dist/
 dist.zip
+package-lock.json
 
 # local env files
 .env
