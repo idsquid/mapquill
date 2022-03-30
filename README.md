@@ -13,7 +13,7 @@ You'll find the app now supports audio, images, as well as text files, AND inclu
 ## Table of Contents
 
 1. [Installation](#installation)
-2. [How It Works](#how-it-works)
+2. [Building Icons](#building-icons)
 3. [Contributing](#contributing)
 
 ## Installation
@@ -27,7 +27,7 @@ npm run serve
 
 Amazing, when it works. If it doesn't (*but it should*) please let me know by [contributing](#contributing).
 
-## How It Works
+## Building Icons
 
 1. <img src="/public/icon-feather.png" width="35" height="35"> Click the quill at the top of your screen to open the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
 2. <img src="/public/icon-popup.png" width="35" height="35"> A popup will ask you to "Do That". This adds a new marker to the map!
@@ -48,7 +48,7 @@ Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that i
 
 Contributions are welcome!
 
-I've added a short list of todo's in Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :). For broader disscussion or suggestions re: the code itself, I made a [the message board][invite]. This is my first piece of OSS (perhaps obviously), so if there's a better way to do *any* of this let me know. 
+I've added a short list of todo's in Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :). For broader disscussion or suggestions re: the code itself, I made a [message board][invite]. This is my first piece of OSS (perhaps obviously), so if there's a better way to do *any* of this let me know. 
 
 For now I'm thinking Discord could work well to foster discussion, and perhaps be integrated into collaborative maps. Mapquill does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? I'd love to discuss safe, respectful ways of doing this, and look forward to your input. 
 
