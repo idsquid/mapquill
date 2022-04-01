@@ -47,44 +47,53 @@ export default {
 //        
 //        return maxZ2 - maxZ1
 //      })
+       
+        
+        // SORT BY LONGITUDE
+        usePosts.sort((j,k) => {
+          return j.audioLatLng.lng - k.audioLatLng.lng
+        })
         // SORT BY LATITUDE
         usePosts.sort((j,k) => {
           return k.audioLatLng.lat - j.audioLatLng.lat
         })
+         
         
         
-      }
       
-      let dx = 0,
-          dy = 0,
-          lastLng = 0
-//          rando = 1// Math.round(Math.random())
+      
+//      let wx = 40, // cube width
+//          wy = 40 // cube length
+//          totalLat = usePosts[usePosts.length - 1].audioLatLng.lat - usePosts[0].audioLatLng.lat,
+//          totalLng = usePosts[usePosts.length - 1].audioLatLng.lng - usePosts[0].audioLatLng.lng
+      let mx = 0,
+          _mx = 0,
+          _lng = 9999,
+          my = 0
       usePosts.forEach((p) => {
-        let maxX = 0,
-            maxY = 0
-//            dir = i % 2
-          p.cubeData.forEach((c) => {
+//        if (i % 4 == 0) {
+        if (p.audioLatLng.lng < _lng) {
+          my = 0
+          mx = _mx
+          _lng = p.audioLatLng.lng
+        }
+        
+        let dy = my,
+            dx = mx
+        
+        p.cubeData.forEach((c) => {
             const cube = [c[0] + dx, c[1] + dy, c[2], c[3]]
             
             payload.push(cube)
             
-//            if (dir == rando && c[0] > maxX) {
-//              maxX = c[0]
-//            }
-//            if (dir == Math.abs(rando-1) && c[1] > maxY) {
-//              maxY = c[2]
-//            }
-            if (p.audioLatLng.lng > lastLng && c[0] > maxX) {
-              maxX = c[0]
-            } 
-            if (p.audioLatLng.lng < lastLng && c[1] > maxY){
-              maxY = c[1]
-            }
+          my = Math.max(my, c[1])
+          _mx = Math.max(_mx, c[0])
+
           })
-        dx += maxX
-        dy += maxY
-        lastLng = p.audioLatLng.lng
+       _lng = p.audioLatLng.lng
       })
+        
+      }
       
       return payload
     },
@@ -122,7 +131,7 @@ export default {
        useCubeScale = Math.min(CANVASWIDTH / unscaledWidth, CANVASHEIGHT / unscaledHeight)
         
         // apply padding
-        const pad = .8
+        const pad = 1
         useCubeScale *= pad
         useCubeScale = Math.min(useCubeScale, 300)
         
@@ -174,6 +183,9 @@ export default {
       width: 100%; height: 100%; 
       box-sizing: border-box;
       overflow: hidden;
+    }
+    .voxel-canvas .canvas-container {
+      border-radius: 0;
     }
     canvas {
       //filter: grayscale(.2) brightness(1.1); // why not

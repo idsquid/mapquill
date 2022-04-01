@@ -3,13 +3,13 @@
   <div class="dimension-input di">
     <span>X</span>
       <div class="numeric-selector">
-        <input v-model="ux1" inputmode="numeric" pattern="[0-9]*">
+        <input v-model.number="ux1" inputmode="numeric" pattern="[0-9]*">
         <v-icon scale=".9" name="minus-square" @click="ux1 -= 1"/>
         <v-icon scale=".9" name="plus-square" @click="ux1 += 1" />
       </div> 
     <span class="plain">to</span> 
     <div class="numeric-selector">
-      <input v-model="ux2" inputmode="numeric" pattern="[0-9]*">
+      <input v-model.number="ux2" inputmode="numeric" pattern="[0-9]*">
       <v-icon scale=".9" name="minus-square" @click="ux2 -= 1"/>
       <v-icon scale=".9" name="plus-square" @click="ux2 += 1" />
     </div>
@@ -17,13 +17,13 @@
   <div class="dimension-input di">
     <span>Y</span>
     <div class="numeric-selector">
-      <input v-model="uy1" inputmode="numeric" pattern="[0-9]*">
+      <input v-model.number="uy1" inputmode="numeric" pattern="[0-9]*">
       <v-icon scale=".9" name="minus-square" @click="uy1 -= 1"/>
       <v-icon scale=".9" name="plus-square" @click="uy1 += 1" />
     </div> 
     <span class="plain">to</span> 
     <div class="numeric-selector">
-      <input v-model="uy2" inputmode="numeric" pattern="[0-9]*">
+      <input v-model.number="uy2" inputmode="numeric" pattern="[0-9]*">
       <v-icon scale=".9" name="minus-square" @click="uy2 -= 1"/>
       <v-icon scale=".9" name="plus-square" @click="uy2 += 1" />
     </div>
@@ -31,13 +31,13 @@
   <div class="dimension-input di">
     <span>Z</span>
     <div class="numeric-selector">
-      <input v-model="uz1" inputmode="numeric" pattern="[0-9]*">
+      <input v-model.number="uz1" inputmode="numeric" pattern="[0-9]*">
       <v-icon scale=".9" name="minus-square" @click="uz1 -= 1"/>
       <v-icon scale=".9" name="plus-square" @click="uz1 += 1" />
     </div> 
     <span class="plain">to</span> 
     <div class="numeric-selector">
-      <input v-model="uz2" inputmode="numeric" pattern="[0-9]*">
+      <input v-model.number="uz2" inputmode="numeric" pattern="[0-9]*">
       <v-icon scale=".9" name="minus-square" @click="uz2 -= 1"/>
       <v-icon scale=".9" name="plus-square" @click="uz2 += 1" />
     </div>
@@ -63,7 +63,12 @@ export default {
   },
   emits: ['triggerAction'],
   computed: {
-    
+    vertSlider: {
+      get() {return this.useVert},
+      set(val) {
+        this.thePost.vertAdjust = val
+      }
+    }
   },
   methods: {
     buildFromInputs() {

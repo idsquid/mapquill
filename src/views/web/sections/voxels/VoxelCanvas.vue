@@ -208,6 +208,7 @@ export default {
    width: $mapIconWidth;
    height: $mapIconHeight;
    overflow: visible;
+   filter: contrast(1.2);
    &.photo-mode {
      overflow: hidden;
    }

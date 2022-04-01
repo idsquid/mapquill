@@ -135,9 +135,9 @@ $pieSize: 8em;
   width: $pieSize;
   height: $pieSize;
   overflow: hidden;
-  border-radius: 4em 0;
+  border-radius: 1em;
   border: 2px solid $darkblue;
-  &.use-content-flower-circle {background-color: #004b99bb; 
+  &.use-content-flower-circle {background-color: #004b99aa; 
   }
   &.got-nothing {background-color: $markerBlueFaded; box-shadow: none; border: 1px dashed $darkblue; border-radius: 10em;
   }
@@ -200,21 +200,25 @@ $pieSize: 8em;
     z-index: 1;
     color: $lightwhite;
     font-weight: bold;
-    text-shadow: -2px 2px 4px black;
+/*    text-shadow: -2px 2px 4px black;*/
     font-size: 14px;
     margin: 0 0 -1px -1px;
     padding: .25em;
     border-radius: 0em;
     min-width: 1em;
     text-align: center;
+    border-radius: 0 5px 0 0;
   }
   .content-info {
     @extend .cluster-info;
-    background: $lightblack;
+    background: $medpurple;
+/*    color: black;*/
+/*    text-shadow: 2px 2px 4px white;*/
     top: 0;
     bottom: auto;
     right: 0;
     left: auto;
+    border-radius: 0 0 0 5px;
   }
 
 
