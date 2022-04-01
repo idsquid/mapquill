@@ -46,9 +46,9 @@ export default Vue.extend({
   computed: {
     topClass() {
       return {
-        'use-content-flower-circle': this.useContentPosts.length > 0,
+        'use-content-flower-circle': true, //this.useContentPosts.length > 0,
         'got-content': this.useContentPosts.length > 0,
-        'no-visible-content': this.useContentPosts.length == 0,
+        'no-visible-content': null, //this.useContentPosts.length == 0,
         'got-voxels': this.structurePosts.length > 0,
         'got-nothing': this.allContentPosts.length == 0 && this.structurePosts.length == 0
       }
@@ -59,8 +59,10 @@ export default Vue.extend({
     allPosts() {
       //
         let allContent = []
+        let numStructures = 0
         let payload = []
         const contentLimit = 16
+        const structLimit = 16
         const source = this.clusterChildren 
         
         for (var i=0; i<source.length; i++) {
@@ -69,12 +71,14 @@ export default Vue.extend({
                 theStructure = this.store.getters['posts/structureById'](marker.options.audioId)
           
           if (allContent.length < contentLimit) {
-            if (theStructure.cubeScale <= 720) {
-              allContent = allContent.concat(theStructure)
-            } else {
+            if (theStructure.cubeScale > 720) {
               for (var c of content) { c.fromStructure = false }
             }
             allContent = allContent.concat(content)
+          }
+          if (numStructures < structLimit) {
+            allContent = allContent.concat(theStructure)
+            numStructures++
           }
         }
       
@@ -103,7 +107,7 @@ export default Vue.extend({
       return this.allContentPosts.filter((p) => {return p.fromStructure === false}) || []
     },
     structurePosts() {
-      return this.allPosts.filter((p) => {return p.audioPostType == 'home'}) || []
+      return this.allPosts.filter((p) => {return p.audioPostType == 'home' && p.cubeData.length > 1}) || []
     }
   },
   methods: {
@@ -132,7 +136,8 @@ $pieSize: 8em;
   height: $pieSize;
   overflow: hidden;
   border-radius: 4em 0;
-  &.use-content-flower-circle {background-color: #004b99dd; 
+  border: 2px solid $darkblue;
+  &.use-content-flower-circle {background-color: #004b99bb; 
   }
   &.got-nothing {background-color: $markerBlueFaded; box-shadow: none; border: 1px dashed $darkblue; border-radius: 10em;
   }
@@ -142,7 +147,7 @@ $pieSize: 8em;
   }
   background-color: $medblue;
   box-sizing: border-box;
-  box-shadow: 6px 18px 11px rgb(0 0 0 / 36%);
+  box-shadow: 6px 18px 11px rgb(0 0 0 / 46%);
   color: white;
   
   // LAYOUT
@@ -167,7 +172,7 @@ $pieSize: 8em;
     grid-column: 1 / 3;
     grid-row: 1 / 3;
     border-radius: 8px;
-    opacity: .9;
+/*    opacity: .9;*/
     .flower-post {
       border-radius: 8px;
     }
@@ -205,7 +210,7 @@ $pieSize: 8em;
   }
   .content-info {
     @extend .cluster-info;
-    background: $lightbrown;
+    background: $lightblack;
     top: 0;
     bottom: auto;
     right: 0;

@@ -34,42 +34,56 @@ export default {
       if (usePosts && usePosts.length > 0) {
         
         // SORT BY HEIGHT
-      usePosts.sort((j,k) => {
-        let maxZ1 = 0,
-            maxZ2 = 0
+//      usePosts.sort((j,k) => {
+//        let maxZ1 = 0,
+//            maxZ2 = 0
+//        
+//        for (const c of j.cubeData) {
+//          if (c[2] > maxZ1) maxZ1 = c[2]
+//        }
+//        for (const u of k.cubeData) {
+//          if (u[2] > maxZ2) maxZ2 = u[2]
+//        }
+//        
+//        return maxZ2 - maxZ1
+//      })
+        // SORT BY LATITUDE
+        usePosts.sort((j,k) => {
+          return k.audioLatLng.lat - j.audioLatLng.lat
+        })
         
-        for (const c of j.cubeData) {
-          if (c[2] > maxZ1) maxZ1 = c[2]
-        }
-        for (const u of k.cubeData) {
-          if (u[2] > maxZ2) maxZ2 = u[2]
-        }
         
-        return maxZ2 - maxZ1
-      })
       }
       
       let dx = 0,
           dy = 0,
-          rando = 1// Math.round(Math.random())
-      usePosts.forEach((p, i) => {
+          lastLng = 0
+//          rando = 1// Math.round(Math.random())
+      usePosts.forEach((p) => {
         let maxX = 0,
-            maxY = 0,
-            dir = i % 2
+            maxY = 0
+//            dir = i % 2
           p.cubeData.forEach((c) => {
             const cube = [c[0] + dx, c[1] + dy, c[2], c[3]]
             
             payload.push(cube)
             
-            if (dir == rando && c[0] > maxX) {
+//            if (dir == rando && c[0] > maxX) {
+//              maxX = c[0]
+//            }
+//            if (dir == Math.abs(rando-1) && c[1] > maxY) {
+//              maxY = c[2]
+//            }
+            if (p.audioLatLng.lng > lastLng && c[0] > maxX) {
               maxX = c[0]
-            }
-            if (dir == Math.abs(rando-1) && c[1] > maxY) {
-              maxY = c[2]
+            } 
+            if (p.audioLatLng.lng < lastLng && c[1] > maxY){
+              maxY = c[1]
             }
           })
         dx += maxX
         dy += maxY
+        lastLng = p.audioLatLng.lng
       })
       
       return payload
@@ -162,7 +176,7 @@ export default {
       overflow: hidden;
     }
     canvas {
-      filter: grayscale(.2) brightness(1.1); // why not
+      //filter: grayscale(.2) brightness(1.1); // why not
    }
   }
 </style>

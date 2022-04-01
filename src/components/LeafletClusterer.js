@@ -79,6 +79,12 @@ var ClusterIconExtension = L.MarkerClusterGroup.extend({
 })
 
 ClusterIconExtension.addInitHook(function() {
+  this.on('spiderfied', () => {
+    document.getElementById('map-full').classList.add('spiderfied')
+  })
+  this.on('unspiderfied', () => {
+    document.getElementById('map-full').classList.remove('spiderfied')
+  })
 })
 
 /* factory */

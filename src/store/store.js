@@ -7,13 +7,15 @@ import user from './modules/user.js'
 import quill from './modules/quill.js'
 import posts from './modules/posts.js'
 import audio from './modules/audio.js'
+import remotePosts from './modules/remotePosts.js'
 
 export default new Vuex.Store({
   modules: {
     user,
     quill,
     posts,
-    audio
+    audio,
+    remotePosts
   },
   state: {
     appState: 'map-view',
@@ -26,7 +28,7 @@ export default new Vuex.Store({
     homeLatLng: {lat:13.3034502,lng:-34.4532591}, // middle of ocean
     homeLocation: 'Middle of Nowhere',
     homeZoom: 14,
-    mapMaxZoom: 15,
+    mapMaxZoom: 18,
     mapMinZoom: 2,
     //
     

@@ -37,6 +37,7 @@ export default {
     topClass() {
       return {
         'photo-mode': this.scale > 720, 
+        'voxel-mode': this.scale <= 720, 
         'pin-mode': this.scale > 720 && !this.photoContent.length}
     },
     cubeData() {
@@ -218,7 +219,8 @@ export default {
      width: 100%;
      height: 100%;
      position: relative;
-    
+     overflow: hidden;
+     border-radius: 99em;
    }
    canvas, .photo-container {
       background: transparent;

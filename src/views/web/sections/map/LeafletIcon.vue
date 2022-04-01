@@ -183,10 +183,23 @@
     }
   }
 /*
-  .at-max-zoom .voxel-canvas {
-   @include mapIconRound;
+  .at-max-zoom .voxel-mode {
+    background-color: transparent;
+    transform: scale(1);
+    border: none;
+    border-radius: 0;
+    .canvas-container {
+      overflow: visible;
+      border-radius: 0;
+    }
   }
 */
+/*
+  .spiderfied .leaflet-container .voxel-mode {
+    transform: scale(.5);
+  }
+*/
+  
   .popup-open .structure {
     margin-top: $mapIconWidthBig / 3;
 /*    transform: scale(1.5);*/
