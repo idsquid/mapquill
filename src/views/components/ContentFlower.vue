@@ -1,7 +1,7 @@
 <template>
-<div class="content-flower">
+<div class="content-flower grid">
     <div :class="'flower-post ' + p.mimeType" v-for="(p, i) in usePosts" :key="'flower-post'+i">
-      <img class="flower-post-content" v-if="p.mimeType == 'image'" :src="p.audioUrl">
+      <div class="flower-post-content image-background" v-if="p.mimeType == 'image'" :style="'background-image: url('+p.audioUrl+')'"></div>
       <div class="flower-post-content" v-if="p.mimeType == 'audio'"><v-icon name="music"></v-icon></div>
       <div class="flower-post-content" v-if="p.mimeType == 'text' && p.audioPostType == 'content'"><v-icon name="font"></v-icon></div>
 <!--
@@ -98,9 +98,11 @@ export default {
   .flower-post {
     box-sizing: border-box;
     overflow: hidden;
-    background-color: #eeeeeeee;
+    background-color: transparent;
+/*
     border: 1px solid black;
     border-radius: 1.2em;
+*/
     &.audio {
 /*      background-color: $lightgrey;*/
 /*      color: $darkwhite; broken */
@@ -114,6 +116,9 @@ export default {
     @include column(center, center);
     width: 100%; height: 100%;
     font-size: 1em;
+    background-size: 310%;
+    background-position: center;
+    
     .fa-icon {
       width: 1em;
       height: 1em;

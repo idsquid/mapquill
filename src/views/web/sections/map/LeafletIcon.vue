@@ -165,7 +165,7 @@
 /*  STATES*/
   .leaflet-container {
     .structure .voxel-canvas {
-      @include mapIconRound;
+      @include mapIcon;
       transform: scale(.8);
       .canvas-container {
         border-radius: 99em;

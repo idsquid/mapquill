@@ -24,12 +24,13 @@ var ClusterIconExtension = L.MarkerClusterGroup.extend({
     singleMarkerMode: true,
     spiderfyDistanceMultiplier: 3.5,
     showCoverageOnHover: false,
-    maxClusterRadius: function(z) {
-      if (z >= 14) {
-        return 100
-      } else {
-        return 220
-      }
+    maxClusterRadius: function() {
+//      if (z >= 14) {
+//        return 100
+//      } else {
+//        return 220
+//      }
+      return 120
     }
   },
   initialize: function(store, map) {

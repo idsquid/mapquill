@@ -11,25 +11,26 @@
     </div>
 -->
     
-    <div class="info-bubble all-posts not-in-popup" v-if="posts">
-      <div class="thumb-container" v-for="(post, i) in posts" :key="'post-thumb-'+i">
-        <div v-if="post.mimeType == 'image'" class="img-thumbnail" :style="imageBackground(post.audioUrl)"></div>
-        <v-icon v-if="post.mimeType == 'audio'" name="music"></v-icon>
-        <v-icon v-if="post.mimeType == 'text'" name="book"></v-icon>
-      </div>
-    </div>
+    
     
 <!--
     <div class="info-bubble edit-link in-popup not-at-max" >
         <v-icon name="search-plus" @click="zoomIn($event)" class="clickable button"></v-icon>
     </div>
 -->
-    <div class="info-bubble edit-link in-popup" >
-        <v-icon name="edit" @click="gotoEdit($event)" class="clickable button" style="fill: white;"></v-icon>
+    <div class="edit-link in-popup clickable button" >
+        <v-icon name="edit" @click="gotoEdit($event)" style="fill: white;"></v-icon>
     </div>
     
-    <div class="title-banner not-in-popup" v-if="thePost.audioTitle">
-      <div class="title">{{ thePost.audioTitle }}</div>
+    <div class="title-banner not-in-popup" :class="{'got-no-title': !thePost.audioTitle}">
+      <div class="title" v-if="thePost.audioTitle">{{ thePost.audioTitle }}</div>
+      <div class="info-bubble all-posts not-in-popup" v-if="posts && includeBubbles">
+      <div class="thumb-container" v-for="(post, i) in posts" :key="'post-thumb-'+i">
+        <div v-if="post.mimeType == 'image'" class="img-thumbnail" :style="imageBackground(post.audioUrl)"></div>
+        <v-icon v-if="post.mimeType == 'audio'" name="music"></v-icon>
+        <v-icon v-if="post.mimeType == 'text'" name="book"></v-icon>
+      </div>
+    </div>
       <div class="controls">
         <div class="info">{{ imagePosts.length }} images</div>
         <div class="info">{{ audioPosts.length }} audio</div>
@@ -66,8 +67,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      useOverlay: true,
-      includeBubbles: true
+      useOverlay: true
     }
   },
   computed: {
@@ -80,6 +80,9 @@ export default Vue.extend({
 //    includeBubbles() {
 //      return this.thePost.cubeData.filter(c => c[3].indexOf('picture-cube') != -1).length == 0
 //    },
+    includeBubbles() {
+      return this.imagePosts.length || this.audioPosts.length || this.textPosts.length
+    },
     userCanEdit() {
       return this.store.getters.userCanEdit(this.id)
     },
@@ -133,11 +136,11 @@ export default Vue.extend({
   @import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
   
   $item-area: 2em;
-  
+  $iconBig: 12em;
   .in-popup {
     opacity: 0;
     &.info-bubble {
-      @include on-circle($item-count: 200, $circle-size: $iconBig, $item-size: $item-area, $rot: 90, $dir: -1); 
+      @include on-circle($item-count: 100, $circle-size: $iconBig, $item-size: $item-area, $rot: 90, $dir: -1); 
     }
   }
   .popup-open .in-popup {
@@ -149,7 +152,7 @@ export default Vue.extend({
   .popup-open .not-in-popup {
     opacity: 0;
     .info-bubble {
-      @include on-circle($item-count: 200, $circle-size: $iconBig, $item-size: $item-area, $rot: 90, $dir: -1); 
+      @include on-circle($item-count: 100, $circle-size: $iconBig, $item-size: $item-area, $rot: 90, $dir: -1); 
     }
   }
   
@@ -160,7 +163,7 @@ export default Vue.extend({
     height: $iconBig;
 /*    left: -($iconBig - $mapIconWidth) / 2;*/
 /*    top: -($iconBig - $mapIconHeight) / 2;*/
-    z-index: 1;
+    z-index: -1;
 /*    overflow: hidden;*/
   }
   
@@ -168,13 +171,13 @@ export default Vue.extend({
 .info-bubble {
   .thumb-container {
     @include column(center, center);
+/*    @include clipRound;*/
     width: $item-area;
     height: $item-area;
     border: 1px solid #333;
     background-color: $medwhite;
     box-sizing: border-box;
-    border-radius: 99em;
-    overflow: hidden;
+    filter: brightness(1.1);
   }
   .img-thumbnail {
     width: 100%;
@@ -182,8 +185,36 @@ export default Vue.extend({
   }
 } 
 .info-bubble.all-posts {
-  @include on-circle($item-count: 30, $circle-size: $iconBig, $item-size: $item-area, $rot: 140, $dir: 1); 
-  
+/*  @include on-circle($item-count: 1.2, $circle-size: $iconBig, $item-size: $item-area, $rot: 80, $dir: -1); */
+/*    position: absolute;*/
+/*    bottom: 4em;*/
+/*    left: 66%;*/
+    display: flex;
+  min-width: $item-area * 3;
+  height: auto;
+  max-height: $item-area * 3;
+  flex-wrap: wrap;
+  margin-left: 1.1em;
+  .thumb-container {
+    @for $i from 1 through 99 {
+      &:nth-of-type(#{$i}) {
+/*        left: $i * -.1em;*/
+/*        flex-shrink: $i;*/
+      }
+    }
+/*
+    &:first-child {
+      border-radius: 1em 0 0 0;
+      overflow: hidden;
+    }
+*/
+/*
+    &:last-child {
+      border-radius: 0 0 1em 0;
+      overflow: hidden;
+    }
+*/
+  }
 }
 .info-bubble.audios {
   @include on-circle($item-count: 50, $circle-size: $iconBig, $item-size: $item-area, $rot: 135, $dir: 1); 
@@ -194,32 +225,43 @@ export default Vue.extend({
     padding: 5px;
   }
 }
+.got-no-title .info-bubble.all-posts {
+  margin-top: 2em;
+  }
   
   .edit-link {
-    top: -0em;
-    font-size: 1em;
+    display: none;
   }  
 .popup-open .edit-link {
-  @include on-circle($item-count: 50, $circle-size: $iconBig + 5em, $item-size: $item-area, $rot: -28, $dir: 1); 
-    z-index: 2;
+/*  @include on-circle($item-count: 50, $circle-size: $iconBig + 5em, $item-size: $item-area, $rot: -28, $dir: 1); */
+    z-index: 200;
+  display: flex;
+  position: absolute;
+  top: auto;
+  bottom: -.5em;
+  right: -.5em;
+  background-color: $lightblue;
+  border-radius: 99em;
     .fa-icon {
-    background-color: $lightblue;
-    color: white;
-/*    padding: .5em;*/
-    border: 1px solid $lightblack;
-      box-shadow: none;
-      border-radius: 50%;
+      width: 1em;
+      height: 1em;
     }
 }
+  .popup-open .map-icon-overlay {
+    z-index: 2;
+  }
   
 /*  TITLE BANNER*/
 /*  LAYOUT*/
   .title-banner {
-    @include row(center, center);
+    @include column();
     transition: all .5s;
 /*    margin-bottom: 3em;*/
     position: absolute;
-    bottom: 0;
+    top: 1.5em;
+    left: 61%;
+    height: 100%;
+    min-width: $item-area * 3;
   }
   .popup-open .title-banner {
 /*    margin-top: -8em;*/
@@ -236,14 +278,14 @@ export default Vue.extend({
     border: 2px solid $medblack;
     opacity: 1;
 /*    transition: opacity 1s;*/
-    border-radius: 0 2em;
+    border-radius: 1em 1em 1em 0;
     justify-content: center;
     text-align: center;
     font-weight: bold;
     overflow: hidden;
-    position: absolute;
-    top: -3em;
-    left: 70%;
+/*    position: absolute;*/
+/*    top: -4em;*/
+/*    left: 61%;*/
   }
   .title-banner .controls {
     display: none;

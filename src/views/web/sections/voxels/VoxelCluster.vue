@@ -28,7 +28,7 @@ export default {
       let payload = []
       
       const usePosts = this.posts.filter((p) => {
-        return p.cubeDataLoaded && p.cubeData.length
+        return p.cubeDataLoaded && p.cubeData.length && p.cubeScale < 721
       })
       
       if (usePosts && usePosts.length > 0) {
@@ -74,7 +74,8 @@ export default {
 //        if (i % 4 == 0) {
         if (p.audioLatLng.lng < _lng) {
           my = 0
-          mx = _mx
+          mx = mx + _mx
+          _mx = 0
           _lng = p.audioLatLng.lng
         }
         
@@ -82,11 +83,11 @@ export default {
             dx = mx
         
         p.cubeData.forEach((c) => {
-            const cube = [c[0] + dx, c[1] + dy, c[2], c[3]]
+            const cube = [c[0] + dx, c[1] + dy, c[2], c[3], c[4]]
             
             payload.push(cube)
             
-          my = Math.max(my, c[1])
+          my = Math.max(my, cube[1])
           _mx = Math.max(_mx, c[0])
 
           })
@@ -98,6 +99,8 @@ export default {
       return payload
     },
     cubeComp() {
+      // scales the combined cubes to fit in a 1000x1000 canvas
+      // with optional padding
       let useCubes = [],
           useCubeScale = 1,
           maxHorz = {cubeIndex:0},

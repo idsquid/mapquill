@@ -79,7 +79,18 @@ export default {
     }
   },
   methods: {
-    draw() {
+    addImageProcess(src){
+      return new Promise((resolve, reject) => {
+        let img = new Image()
+        img.onload = () => resolve(img)
+        img.onerror = function() {
+          console.log(src)
+          reject()
+        }
+        img.src = src
+      })
+    },
+    async draw() {
       const ctx = this.ctx,
             w = this.canvasWidth,
             h = this.canvasHeight,
@@ -108,13 +119,51 @@ export default {
 //      ctx.fillStyle = bgGrad;
 //      ctx.fillRect(0,0,this.canvasWidth,canvas.height);
       
-      
-      this.thePost.cubeData.forEach(c => {
-        let color = c[3] == 'picture-cube' ? 'white' : c[3], // coverup!
+      let imageStartX = 0
+      for (var ii=0; ii<this.thePost.cubeData.length; ii++) {
+        let c = this.thePost.cubeData[ii]
+        
+        let color = c[3], // coverup!
             coords = this.cubeCoords(c, cs, this.thePost.horzAdjust, this.thePost.vertAdjust)
         
-        this.drawCube(coords.x, coords.y, coords.wx, coords.wy, coords.wz, color)
-      });
+         this.drawCube(coords.x, coords.y, coords.wx, coords.wy, coords.wz, color)
+        
+        if (c[3] == 'image-poster-start') {
+          imageStartX = coords.x - coords.wx
+        }
+        if (c[3] == 'image-poster-end') {
+          const image = new Image(), //await this.addImageProcess(c[4]),
+                _ctx = this.ctx
+          
+          image.src = c[4]
+          
+//          await image.decode()
+          if (image.width > 0) {
+            const w = coords.x - imageStartX,
+                  h = w * 1.5,
+                  wi = image.width,
+                  hi = image.height,
+                  sw = wi / 4,
+                  sh = sw,
+                  sx = (wi - sw) / 2,
+                  sy = (hi - sh) / 2
+            
+          _ctx.setTransform(1, .5, 0, 1, coords.x-coords.wx/2, coords.y-coords.wy/2);
+          _ctx.drawImage(image, sx, sy, sw, sh, -w + 20, -40, w, h)
+          _ctx.setTransform(1, 0,0,1,0,0);  
+          } else {
+            const loadingImage = new Image()
+            loadingImage.onload = () => {
+              this.draw()
+            }
+            loadingImage.src = c[4]
+          }
+        }
+       
+        
+        
+        
+      }
     },
     cubeCoords(c, cs, horz, vert) {
       let wx = cs,
@@ -149,7 +198,7 @@ export default {
         ctx.lineTo(x - wx, y - wz - wx * 0.5);
         ctx.lineTo(x, y - wz * 1);
         ctx.closePath();
-        ctx.fillStyle = colors['med'+color]
+        ctx.fillStyle = colors['med'+color] || colors['medgrey']
         //ctx.strokeStyle = "#7a7a51";
         //ctx.stroke();
         ctx.fill();
@@ -161,7 +210,7 @@ export default {
         ctx.lineTo(x + wy, y - wz - wy * 0.5);
         ctx.lineTo(x, y - wz * 1);
         ctx.closePath();
-        ctx.fillStyle = colors['dark'+color]
+        ctx.fillStyle = colors['dark'+color] || colors['darkgrey']
         //ctx.strokeStyle = "#676744";
         //ctx.stroke();
         ctx.fill();
@@ -173,7 +222,7 @@ export default {
         ctx.lineTo(x, y - wz - (wx * 0.5 + wy * 0.5));
         ctx.lineTo(x + wy, y - wz - wy * 0.5);
         ctx.closePath();
-        ctx.fillStyle = colors['light'+color]
+        ctx.fillStyle = colors['light'+color] || colors['lightgrey']
         //ctx.strokeStyle = "#8e8e5e";
         //ctx.stroke();
         ctx.fill(); 
@@ -209,9 +258,7 @@ export default {
    height: $mapIconHeight;
    overflow: visible;
    filter: contrast(1.2);
-   &.photo-mode {
-     overflow: hidden;
-   }
+   
 /*
    width: $mapIconWidth;
    height: $mapIconHeight;
@@ -230,10 +277,22 @@ export default {
       background-repeat: no-repeat;
     }
    .photo-container {
+     @include iconRound;
       z-index: 0;
      border-radius: 99em;
      overflow: hidden;
    }
+  }
+  .pin-mode {
+    @include iconRound;
+    overflow: visible;
+  }
+  .structure .canvas-container {
+    @include iconRound;
+  }
+  .popup-open .canvas-container {
+    background-color: #eee;
+    @include noClip;
   }
   
 </style>

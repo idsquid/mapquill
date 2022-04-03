@@ -1,18 +1,18 @@
 <template>
 <div class="icon-cluster" :class="topClass">
-  <content-flower :posts="allContentPosts" :store="store"></content-flower>
+  <content-flower v-if="useContentFlower" :posts="allContentPosts" :store="store"></content-flower>
   <voxel-cluster v-if="useVoxelCluster" :posts="structurePosts" :store="store"></voxel-cluster>
   
   <div class="empty-cluster">
     <v-icon name="map-pin" v-for="(c,i) in clusterChildren" :key="'empty-structure-'+i"></v-icon>
   </div>
   
-  <div class="content-info" v-if="allContentPosts.length">
+  <div class="content-info " v-if="allContentPosts.length && useCounts">
     {{ allContentPosts.length }}
 <!--    <v-icon name="camera" style="fill:white;"></v-icon>-->
   </div>
   
-  <div class="cluster-info">
+  <div class="cluster-info" v-if="useCounts">
     {{ clusterChildren.length }} 
 <!--    <v-icon name="home" style="fill:white;"></v-icon>-->
   </div>
@@ -23,13 +23,16 @@
 import Vue from 'vue'
 import VoxelCluster from '@/views/web/sections/voxels/VoxelCluster.vue' 
 import ContentFlower from '@/views/components/ContentFlower.vue' 
+import {anImageStructure} from '@/views/web/sections/voxels/VoxelUtils.js' 
   
 export default Vue.extend({
   name: 'icon-cluster',
   props: ['cluster', 'store'],
   data() {
     return {
-      useVoxelCluster: true
+      useVoxelCluster: true,
+      useContentFlower: true,
+      useCounts: false
     }
   },
   components: {
@@ -46,8 +49,8 @@ export default Vue.extend({
   computed: {
     topClass() {
       return {
-        'use-content-flower-circle': true, //this.useContentPosts.length > 0,
-        'got-content': this.useContentPosts.length > 0,
+        'use-content-flower-circle': false, //this.useContentPosts.length > 0,
+        //'got-content': this.useContentPosts.length > 0,
         'no-visible-content': null, //this.useContentPosts.length == 0,
         'got-voxels': this.structurePosts.length > 0,
         'got-nothing': this.allContentPosts.length == 0 && this.structurePosts.length == 0
@@ -70,13 +73,19 @@ export default Vue.extend({
                 content = this.store.getters['posts/contentById'](marker.options.audioId),
                 theStructure = this.store.getters['posts/structureById'](marker.options.audioId)
           
-          if (allContent.length < contentLimit) {
-            if (theStructure.cubeScale > 720) {
-              for (var c of content) { c.fromStructure = false }
-            }
-            allContent = allContent.concat(content)
+          if (allContent.length < contentLimit && content.length && theStructure.cubeScale > 720 && content[0].mimeType == 'image') {
+              const imageStructure = {
+                cubeData:anImageStructure(content[0]),
+                cubeScale:1,
+                audioLatLng: {
+                  lat: theStructure.audioLatLng.lat,
+                  lng: theStructure.audioLatLng.lng
+                },
+                audioPostType: 'home'
+              }
+              allContent = allContent.concat(imageStructure)
           }
-          if (numStructures < structLimit) {
+          if (numStructures < structLimit && theStructure.cubeScale < 721) {
             allContent = allContent.concat(theStructure)
             numStructures++
           }
@@ -107,7 +116,7 @@ export default Vue.extend({
       return this.allContentPosts.filter((p) => {return p.fromStructure === false}) || []
     },
     structurePosts() {
-      return this.allPosts.filter((p) => {return p.audioPostType == 'home' && p.cubeData.length > 1}) || []
+      return this.allPosts.filter((p) => {return p.audioPostType == 'home'}) || []
     }
   },
   methods: {
@@ -136,8 +145,9 @@ $pieSize: 8em;
   height: $pieSize;
   overflow: hidden;
   border-radius: 1em;
-  border: 2px solid $darkblue;
-  &.use-content-flower-circle {background-color: #004b99aa; 
+  border: none; //2px solid $darkblue;
+  &.use-content-flower-circle {
+    //background-color: #004b99aa; 
   }
   &.got-nothing {background-color: $markerBlueFaded; box-shadow: none; border: 1px dashed $darkblue; border-radius: 10em;
   }
@@ -145,9 +155,12 @@ $pieSize: 8em;
 /*    border-radius: 10em 0;*/
     background-color: #eeeeee44;
   }
-  background-color: $medblue;
+  background-color: transparent;
   box-sizing: border-box;
-  box-shadow: 6px 18px 11px rgb(0 0 0 / 46%);
+  box-shadow: 4px 9px 4px 0px #333333a6;
+    border: 1px solid #333333aa;
+    border-bottom: none;
+    border-right: none;
   color: white;
   
   // LAYOUT
@@ -172,10 +185,6 @@ $pieSize: 8em;
     grid-column: 1 / 3;
     grid-row: 1 / 3;
     border-radius: 8px;
-/*    opacity: .9;*/
-    .flower-post {
-      border-radius: 8px;
-    }
   }
   &.got-content .voxel-cluster {
     grid-column: 1 / 2;
