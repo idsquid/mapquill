@@ -121,7 +121,7 @@ export default Vue.extend({
   .carousel {
     align-items: center;
     justify-content: flex-start;
-    height: 200px;
+    height: 100%;
 /*    height: 280px;*/
   }
   .carousel-posts {

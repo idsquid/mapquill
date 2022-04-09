@@ -1,6 +1,9 @@
 <template>
   <div class="image-post pointerable">
-    <img :src="thePost.audioUrl" @load="$emit('contentLoaded')">
+    
+    <img v-if="thePost.audioUrl" :src="thePost.audioUrl" @load="$emit('contentLoaded')">
+    <v-icon v-else class="loading-indicator" name="spinner" spin></v-icon>
+    
   </div>
 </template>
 
@@ -29,7 +32,8 @@ export default Vue.extend({
     background-repeat: no-repeat;
     overflow: scroll;
     img {
-      max-height: 150px; //280px;
+/*      max-height: 150px; //280px;*/
+      height: 200px;
     }
   }
   

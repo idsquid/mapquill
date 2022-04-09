@@ -83,7 +83,7 @@ export function anImageStructure(post) {
       else if (z==h && y==d) {
         payload.push([d2, y, z, 'image-poster-end',post.audioUrl])
       } else {
-        payload.push([d2, y, z, 'grey'])
+        payload.push([d2, y, z, 'brown'])
       }
     }
   }

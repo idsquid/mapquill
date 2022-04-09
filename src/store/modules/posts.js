@@ -247,7 +247,7 @@ const mutations = {
         return false
       }
     },
-    updateLocalStorage(state) {
+  updateLocalStorage(state) {
       // SAVE TO LOCALSTORAGE
       let localPosts = []
       state.allAudioPosts.forEach(post => {

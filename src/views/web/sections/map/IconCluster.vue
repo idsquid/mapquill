@@ -157,7 +157,7 @@ $pieSize: 8em;
   }
   background-color: transparent;
   box-sizing: border-box;
-  box-shadow: 4px 9px 4px 0px #333333a6;
+  box-shadow: 4px 2px 12px 3px $medwhite inset, 3px 5px 4px $medblack;
     border: 1px solid #333333aa;
     border-bottom: none;
     border-right: none;

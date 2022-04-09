@@ -28,7 +28,7 @@ export default new Vuex.Store({
     homeLatLng: {lat:13.3034502,lng:-34.4532591}, // middle of ocean
     homeLocation: 'Middle of Nowhere',
     homeZoom: 14,
-    mapMaxZoom: 18,
+    mapMaxZoom: 16,
     mapMinZoom: 2,
     //
     

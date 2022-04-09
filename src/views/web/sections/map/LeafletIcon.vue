@@ -168,7 +168,7 @@
       @include mapIcon;
       transform: scale(.8);
       .canvas-container {
-        border-radius: 99em;
+        border-radius: 0em;
         overflow: hidden;
       }
       > .fa-icon {

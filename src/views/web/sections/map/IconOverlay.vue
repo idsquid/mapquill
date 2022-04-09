@@ -180,6 +180,7 @@ export default Vue.extend({
     filter: brightness(1.1);
   }
   .img-thumbnail {
+    background-size: 250%;
     width: 100%;
     height: 100%;
   }
@@ -194,11 +195,13 @@ export default Vue.extend({
   height: auto;
   max-height: $item-area * 3;
   flex-wrap: wrap;
-  margin-left: 1.1em;
+  margin-left: 1em;
   .thumb-container {
+    border-radius: .5em;
+    overflow: hidden;
     @for $i from 1 through 99 {
       &:nth-of-type(#{$i}) {
-/*        left: $i * -.1em;*/
+/*        opacity: 1 - $i/20;*/
 /*        flex-shrink: $i;*/
       }
     }
@@ -226,7 +229,7 @@ export default Vue.extend({
   }
 }
 .got-no-title .info-bubble.all-posts {
-  margin-top: 2em;
+  margin-top: 3em;
   }
   
   .edit-link {
@@ -258,7 +261,7 @@ export default Vue.extend({
     transition: all .5s;
 /*    margin-bottom: 3em;*/
     position: absolute;
-    top: 1.5em;
+    top: .5em;
     left: 61%;
     height: 100%;
     min-width: $item-area * 3;

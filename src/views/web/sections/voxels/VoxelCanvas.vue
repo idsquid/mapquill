@@ -289,6 +289,9 @@ export default {
   }
   .structure .canvas-container {
     @include iconRound;
+/*    background: linear-gradient(-60deg, $markerBlueFaded 8%, transparent 90%);*/
+    background-color: transparent;
+    border: none;
   }
   .popup-open .canvas-container {
     background-color: #eee;
