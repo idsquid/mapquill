@@ -7,15 +7,15 @@ import user from './modules/user.js'
 import quill from './modules/quill.js'
 import posts from './modules/posts.js'
 import audio from './modules/audio.js'
-import remotePosts from './modules/remotePosts.js'
+//import remotePosts from './modules/remotePosts.js'
 
 export default new Vuex.Store({
   modules: {
     user,
+//    remotePosts,
     quill,
     posts,
-    audio,
-    remotePosts
+    audio
   },
   state: {
     appState: 'map-view',
