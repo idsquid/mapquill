@@ -1,13 +1,6 @@
-# an isometric icon plotter
+# <img src="/public/image-turtle.png" width="35" height="35"> an isometric icon plotter
 
-This application:
-1. draws icons on a map
-2. populates these icons with audio recordings, images, and/or text files
-3. shapes the icons to resemble three-dimensional block buildings
-4. includes a utility for drawing little block buildings
-5. clusters the icons together while preserving their shape at any zoom level
-
-It is an answer to the question of how to represent landmarks meaningfully on a digital map. Maps are two-dimensional on paper, as well as on the screen, but our screens allow us to resize them to incredible degrees. For example, the map in the [demo][demo] below can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
+This application is an answer to the question of how to represent landmarks meaningfully on a digital map. Maps are two-dimensional on paper, as well as on the screen, but our screens allow us to resize them to incredible degrees. For example, the map in the [demo][demo] below can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
 
 The first step in keeping landmarks accessible across zoom levels is to draw them the same size no matter what. And if you only have one per continent, that's enough. This application attempts to address the problem of displaying icons that would otherwise occupy the same pixel, by rendering them in an isometric cluster. [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] are the brilliant tools that make the UI possible, while [Open Street Maps][osm] provides the landscape.
 
