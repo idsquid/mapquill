@@ -8,6 +8,7 @@ export default class AuwalkPost {
   constructor(source) {
     this.createdAt = parseInt(source.createdAt)
     this.lastModified = parseInt(source.lastModified)
+    this.alteredAt = false
     this.fileKey = source.fileKey
     
     // everything sorted by postDate now

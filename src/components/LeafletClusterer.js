@@ -24,12 +24,13 @@ var ClusterIconExtension = L.MarkerClusterGroup.extend({
     singleMarkerMode: true,
     spiderfyDistanceMultiplier: 3.5,
     showCoverageOnHover: false,
-    maxClusterRadius: function(z) {
-      if (z >= 14) {
-        return 100
-      } else {
-        return 220
-      }
+    maxClusterRadius: function() {
+//      if (z >= 14) {
+//        return 100
+//      } else {
+//        return 220
+//      }
+      return 120
     }
   },
   initialize: function(store, map) {
@@ -79,6 +80,12 @@ var ClusterIconExtension = L.MarkerClusterGroup.extend({
 })
 
 ClusterIconExtension.addInitHook(function() {
+  this.on('spiderfied', () => {
+    document.getElementById('map-full').classList.add('spiderfied')
+  })
+  this.on('unspiderfied', () => {
+    document.getElementById('map-full').classList.remove('spiderfied')
+  })
 })
 
 /* factory */

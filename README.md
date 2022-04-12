@@ -1,14 +1,23 @@
-# mapquill
+# an isometric icon plotter
 
-**Pandemic Project Alert.** This was originally a simple utility for drawing clickable icons on a map, and for populating these icons with audio recordings local to that area. But when it came to the question of what these icons should *look like* things got complicated. In the end (not that it's over) I chose to let the user decide - a potentially dangerous proposition. But here we are, two years later, and mapquill looks something like this:
+This application:
+1. draws icons on a map
+2. populates these icons with audio recordings, images, and/or text files
+3. shapes the icons to resemble three-dimensional block buildings
+4. includes a utility for drawing little block buildings
+5. clusters the icons together while preserving their shape at any zoom level
 
-### Demo
+It is an answer to the question of how to represent landmarks meaningfully on a digital map. Maps are two-dimensional on paper, as well as on the screen, but our screens allow us to resize them to incredible degrees. For example, the map in the [demo][demo] below can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
 
-[this is the demo][demo]
+The first step in keeping landmarks accessible across zoom levels is to draw them the same size no matter what. And if you only have one per continent, that's enough. This application attempts to address the problem of displaying icons that would otherwise occupy the same pixel, by rendering them in an isometric cluster. [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] are the brilliant tools that make the UI possible, while [Open Street Maps][osm] provides the landscape.
 
-You'll find the app now supports audio, images, as well as text files, AND includes an icon editor, for building fun little turtles
+## Demo
 
-<img src="/public/image-turtle.png" width="100" height="100"> like me!
+Here I've chosen a handful of landmarks in downtown Chicago to represent with isometric block buildings, as well as flat photos. Depending on the map's zoom level they either appear as clickable icons with content hidden inside, or clusters that function as "zoom in" buttons. My hope is that the user will find the map useful and accessible at any zoom.
+
+[downtown Chicago demo][demo]
+
+This demo was built in [Vue][vue] using a tiny "backend" that gives the user the ability to create, edit, and destroy the little block buildings at will. Unfortunately the demo will not save your changes, but feel free to play around, and if you would like to [contribute](#contributing) to this map, or another like it, [let me know][tradbot].
 
 ## Table of Contents
 
@@ -18,41 +27,43 @@ You'll find the app now supports audio, images, as well as text files, AND inclu
 
 ## Installation
 
-This project was built with Vue2 through the Vue Cli v5.0.0. The demo above was compiled by Node v16.10.0. It depends on [Open Street Maps][osm], [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] to power the map itself, and [fontawesome][fontawesome] to provide the svg icons. If that's total gibberish, but you'd like to know more, please consider reaching out re: programming basics. Otherwise you should be able to clone this repository, go to the project folder, and run the following from your terminal:
+This project was built with [Vue2][vue] through the [Vue Cli][vuecli] v5.0.0. The demo above was compiled by Node v16.10.0. It depends on [Open Street Maps][osm], [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] to power the map itself, and [fontawesome][fontawesome] to provide some svg icons. If that's total gibberish, but you'd like to know more, please consider [W3][w3]. Otherwise you should be able to clone this repository, go to the project folder, and run the following from your terminal:
 
 ```
 npm install
 npm run serve
 ```
 
-Amazing, when it works. If it doesn't (*but it should*) please let me know by [contributing](#contributing).
+Amazing, when it works. If it doesn't (but it should) please let me know by [contributing](#contributing).
 
 ## Building Icons
 
 1. <img src="/public/icon-feather.png" width="35" height="35"> The quill at the top of your screen opens the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
 2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map.
-3. <img src="/public/icon-edit.png" width="35" height="35"> The new marker has a new popup. And this symbol leads to the edit screen.
+3. <img src="/public/icon-edit.png" width="35" height="35"> Click the new marker; it has a new popup. The edit symbol leads to its edit screen.
 4. <img src="/public/icon-map.png" width="35" height="35">  This button will bring you back to the map. But first...
 
 ### Editing the Icon
 
-<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. If you **add new** content to a marker, however, and that content happens to be an image, the icon will display the image instead. The **edit** link below the icon preview will take you to a new page, where you can realign things, or go to...
+<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. But if you visit the pin's edit screen, and click **add new**, the icon can display an image instead. The **edit** link below the icon preview will take you to a new page, where you can realign things, or go to...
 
 ### Voxel Mode
 
 <img src="/public/image-voxels.png" width="300" height="151">
 
-Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill presents a click-to-build interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent media content on a map. 
+Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill includes a minecraft-esque interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent landmarks on a map at home alone with your isometer. 
 
 ## Contributing
 
 Contributions are welcome!
 
-I've added a short list of todo's in Github's [issue tracker][issues]. Please feel free to submit your own, or if you'd be willing to tackle one let me know :) For broader disscussion or suggestions re: the code itself, I made a [message board][invite]. This is my first piece of OSS (perhaps obviously), so if there's a better way to do *any* of this let me know. 
+This was a side project that took shape during covid lockdown. I never intended to build *this exact thing* so while Vue's structure/philosophy/patterning helps, the code itself is rough and ready. I've started using Github's [issue tracker][issues], but anyone with interest in supporting this project should reach out via my [website][tradbot], or video...
 
-For now I'm thinking Discord could work well to foster discussion, organize beta testing, and perhaps be integrated into collaborative maps. Mapquill does **not** share content, and does **not** connect to any service that shares content. That being said, wouldn't it be fun if it did? What if we could collaborate on a map that tracks butterfly migration, complete with pictures and sound? Or celebrates music from around the globe? I'd love to discuss safe, respectful ways of doing this, and look forward to your input. 
+> I'm available to chat about maps, code, etc. every first and third Monday, 11:00am Central Standard Time
+> and you're invited! [Click here to join the message board][invite].
+> Hope to see you there.
 
-> Here's that [invite][invite] again. 
+...where we can talk through the code, I can point out its features and bugs, and maybe we build some little block buildings together.
 
 Thanks for reading!
 
@@ -64,7 +75,10 @@ Mapquill is licensed under the General Public Use License.
 [invite]: https://discord.gg/Nu5YuwTd9K
 [issues]: https://github.com/idsquid/mapquill/issues
 [vue]: https://vuejs.org/
+[vuecli]: https://cli.vuejs.org/
 [osm]: https://www.openstreetmap.org/about
+[tradbot]: https://tradbot.com/?y=2022
+[w3]: https://www.w3schools.com/
 [leaflet]: https://leafletjs.com/
 [clusterer]: https://github.com/Leaflet/Leaflet.markercluster
 [fontawesome]: https://fontawesome.com/v5/icons/map-pin?s=solid

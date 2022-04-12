@@ -51,3 +51,41 @@ export function coordsToPix(c, cs, horz, vert) {
 
     return {x: x, y: y, wx: wx, wy: wy, wz: wz}
 }
+
+export function anImageStructure(post) {
+  const d = 7,
+        d2 = 3,
+        h = 8
+  let x = 1,
+      y=1,
+      z = 1,
+      cube = [1,1,1,'blank']
+  let payload = []
+  // base
+  for ( x=1; x<=4; x++) {
+    for ( y=1; y<=d; y++) {
+      cube = [x, y, 1, 'yellow']
+      if (x>3 || y==d) {cube[3] = 'green'}
+      payload.push(cube)
+     
+    }
+  }
+  // pole
+//  for ( z=2; z<d; z++) {
+//    payload.push([d2, d2, z, 'grey'])
+//  }
+  // board
+  for ( z=d2; z<=h; z++) {
+    for ( y=3; y<=d; y++) {
+      if (z==d2 && y==3) {
+        payload.push([d2, y, z, 'image-poster-start'])
+      }
+      else if (z==h && y==d) {
+        payload.push([d2, y, z, 'image-poster-end',post.audioUrl])
+      } else {
+        payload.push([d2, y, z, 'brown'])
+      }
+    }
+  }
+  return payload
+}

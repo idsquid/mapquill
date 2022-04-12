@@ -106,9 +106,12 @@ export default {
       } 
     },
     async deletePost() {
+      let doIt = prompt('Deletes cannot be undone. Enter "confirm" to confirm deletion of this post, and its children.')
+      if (doIt == 'confirm') {
       this.$store.dispatch('posts/deletePost', this.thePost)
       if (this.thePost.audioPostType == 'home') {
         this.$router.push({name: 'map'})
+      }
       }
     },
     dateUpdate(d) {

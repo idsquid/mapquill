@@ -6,6 +6,7 @@ src/components/GeocodingFrame.vue
 src/store/modules/remotePosts.js
 src/store/modules/community.js
 src/assets/
+gathered assets/
 
 # personal projects?
 src/views/web/sections/static/tradbotHome.vue

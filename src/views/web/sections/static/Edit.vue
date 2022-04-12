@@ -6,7 +6,7 @@
             <v-icon name="map"></v-icon>
           </div>
         </router-link>
-        <div class="clickable button" @click="saveAll" v-if="saveablePosts">save all ({{ saveablePosts }})</div>
+        <div class="clickable button" @click="saveAll" v-if="saveablePosts.length">save all ({{ saveablePosts.length }})</div>
         <router-link v-if="$route.name == 'voxels'" :to="{name: 'files'}" v-slot="{navigate}" append custom>
           <div class="clickable button" @click="navigate">
             BACK
@@ -36,26 +36,31 @@ export default {
     const post = this.$store.getters['posts/structureById'](this.$route.params.audioId)
     
     if (post) {
+//      console.log('created')
       this.$store.commit('quill/updateLatLng', post.audioLatLng) // for content creation
       
       if (!post.cubeDataLoaded) {
         if (this.$store.getters.useRemoteDatabase) {
           await this.$store.dispatch('getRemoteFile', {post: post, property: 'cubeData'})
+          console.log('cube data loaded')
         } else {
           post.cubeDataLoaded = true
         }
       }
       this.$store.commit('posts/updateActiveId', post.audioId)
+      this.addWatchers()
     }
   },
   mounted() {
-    if (this.thePost) {
+//    console.log('mounted')
+    if (this.thePost && this.thePost.cubeDataLoaded) {
       this.addWatchers()
     }
   },
   updated() {
 //    console.log('updatee')
-    if (this.thePost) {
+    if (this.thePost && this.thePost.cubeDataLoaded) {
+      this.$store.commit('posts/updateActiveId', this.thePost.audioId)
       this.addWatchers()
     }
   },
@@ -66,10 +71,9 @@ export default {
       } else {
           return null
       }
-      
     },
     saveablePosts() {
-      return this.$store.getters['posts/saveablePosts'].length
+      return this.$store.getters['posts/saveablePosts']
     }
   },
   methods: {
@@ -94,6 +98,7 @@ export default {
             }
           },
           function() {
+            console.log(this.$store.getters['posts/saveablePosts'].length)
             this.$set(p, 'alteredAt', Date.now())
           })
         })

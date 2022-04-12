@@ -24,8 +24,8 @@ export default {
   },
   data() {
     return {
-      colors: ['blue','red','green','yellow','orange','purple','white','brown','grey','black'],
-      colorCodes: ['#009bc5','#bf272c','#80c64a','#dfdf71','#fbb513','#c267a7','#f5f4f3','#a5857d','#858b90','#203A43'],
+      colors: ['blue','red','green','yellow','orange','purple','white','brown','grey','black','stone'],
+      colorCodes: ['#009bc5','#bf272c','#80c64a','#dfdf71','#fbb513','#c267a7','#f5f4f3','#a5857d','#858b90','#203A43','#d4d1c1'],
       selectedColor: 0,
       editControls: ['create','tint','trash'],
       editIcons: ['cube', 'tint', 'trash'],

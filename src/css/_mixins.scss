@@ -35,12 +35,20 @@
   }
 }
 
-@mixin iconRound {
-  background-color: $markerBlue;
+@mixin clipRound {
   border-radius: 99em;
+  overflow: hidden;
+}
+@mixin noClip {
+  overflow: visible;
+  border-radius: 0;
+}
+
+@mixin iconRound {
+  @include clipRound;
+  background-color: $markerBlue;
   box-sizing: border-box;
   border: 2px solid $darkblue;
-  
 }
 @mixin mapIcon {
   width: $mapIconWidth;

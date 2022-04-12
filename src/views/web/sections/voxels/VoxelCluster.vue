@@ -28,53 +28,79 @@ export default {
       let payload = []
       
       const usePosts = this.posts.filter((p) => {
-        return p.cubeDataLoaded && p.cubeData.length
+        return p.cubeDataLoaded && p.cubeData.length && p.cubeScale < 721
       })
       
       if (usePosts && usePosts.length > 0) {
         
         // SORT BY HEIGHT
-      usePosts.sort((j,k) => {
-        let maxZ1 = 0,
-            maxZ2 = 0
+//      usePosts.sort((j,k) => {
+//        let maxZ1 = 0,
+//            maxZ2 = 0
+//        
+//        for (const c of j.cubeData) {
+//          if (c[2] > maxZ1) maxZ1 = c[2]
+//        }
+//        for (const u of k.cubeData) {
+//          if (u[2] > maxZ2) maxZ2 = u[2]
+//        }
+//        
+//        return maxZ2 - maxZ1
+//      })
+       
         
-        for (const c of j.cubeData) {
-          if (c[2] > maxZ1) maxZ1 = c[2]
-        }
-        for (const u of k.cubeData) {
-          if (u[2] > maxZ2) maxZ2 = u[2]
-        }
+        // SORT BY LONGITUDE
+        usePosts.sort((j,k) => {
+          return j.audioLatLng.lng - k.audioLatLng.lng
+        })
+        // SORT BY LATITUDE
+        usePosts.sort((j,k) => {
+          return k.audioLatLng.lat - j.audioLatLng.lat
+        })
+         
         
-        return maxZ2 - maxZ1
-      })
-      }
+        
       
-      let dx = 0,
-          dy = 0,
-          rando = 1// Math.round(Math.random())
-      usePosts.forEach((p, i) => {
-        let maxX = 0,
-            maxY = 0,
-            dir = i % 2
-          p.cubeData.forEach((c) => {
-            const cube = [c[0] + dx, c[1] + dy, c[2], c[3]]
+      
+//      let wx = 40, // cube width
+//          wy = 40 // cube length
+//          totalLat = usePosts[usePosts.length - 1].audioLatLng.lat - usePosts[0].audioLatLng.lat,
+//          totalLng = usePosts[usePosts.length - 1].audioLatLng.lng - usePosts[0].audioLatLng.lng
+      let mx = 0,
+          _mx = 0,
+          _lng = 9999,
+          my = 0
+      usePosts.forEach((p) => {
+//        if (i % 4 == 0) {
+        if (p.audioLatLng.lng < _lng) {
+          my = 0
+          mx = mx + _mx
+          _mx = 0
+          _lng = p.audioLatLng.lng
+        }
+        
+        let dy = my,
+            dx = mx
+        
+        p.cubeData.forEach((c) => {
+            const cube = [c[0] + dx, c[1] + dy, c[2], c[3], c[4]]
             
             payload.push(cube)
             
-            if (dir == rando && c[0] > maxX) {
-              maxX = c[0]
-            }
-            if (dir == Math.abs(rando-1) && c[1] > maxY) {
-              maxY = c[2]
-            }
+          my = Math.max(my, cube[1])
+          _mx = Math.max(_mx, c[0])
+
           })
-        dx += maxX
-        dy += maxY
+       _lng = p.audioLatLng.lng
       })
+        
+      }
       
       return payload
     },
     cubeComp() {
+      // scales the combined cubes to fit in a 1000x1000 canvas
+      // with optional padding
       let useCubes = [],
           useCubeScale = 1,
           maxHorz = {cubeIndex:0},
@@ -108,7 +134,7 @@ export default {
        useCubeScale = Math.min(CANVASWIDTH / unscaledWidth, CANVASHEIGHT / unscaledHeight)
         
         // apply padding
-        const pad = .8
+        const pad = 1
         useCubeScale *= pad
         useCubeScale = Math.min(useCubeScale, 300)
         
@@ -161,8 +187,11 @@ export default {
       box-sizing: border-box;
       overflow: hidden;
     }
+    .voxel-canvas .canvas-container {
+      border-radius: 0;
+    }
     canvas {
-      filter: grayscale(.2) brightness(1.1); // why not
+      //filter: grayscale(.2) brightness(1.1); // why not
    }
   }
 </style>

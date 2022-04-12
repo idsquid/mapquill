@@ -1,8 +1,8 @@
 <template>
-<div class="voxel-view voxel-css" v-if="thePost && thePost.cubeDataLoaded">
+<div class="voxel-view voxel-css" :class="topClass" v-if="thePost && thePost.cubeDataLoaded">
   <div class="scene">
     <div class="isometric-container" :style="isoStyle" :class="'max-dimension-' + maxDimension">
-      <voxel-cube v-for="(c, i) in cubes" :environment="c[4] || 'live'" :key="i" :propClass="c[3]" :x="c[0]" :y="c[1]" :z="c[2]" :faceContent="cubeFaceContent(c)" @click.native="$emit('cubeClicked', i)" @sideClicked="$emit('sideClicked', $event)"></voxel-cube>
+      <voxel-cube v-for="(c, i) in cubes" :environment="c[4] || 'live'" :key="i" :propClass="c[3]" :x="parseInt(c[0])" :y="parseInt(c[1])" :z="parseInt(c[2])" :faceContent="cubeFaceContent(c)" @click.native="$emit('cubeClicked', i)" @sideClicked="$emit('sideClicked', $event)"></voxel-cube>
     </div>
   </div>
   <slot></slot>
@@ -35,6 +35,11 @@ export default {
   computed: {
     environment() {
       return 'live'
+    },
+    topClass() {
+      return {
+        'spiderfied': this.thePost.marker?._spiderLeg
+      }
     },
     cubes() {
       let payload = []

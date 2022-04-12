@@ -58,6 +58,7 @@ MarkerExtended.addInitHook(function() {
   // Events
  _initAgnosticContent.call(this)
   
+  
 })
 
 L.Marker.include({

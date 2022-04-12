@@ -255,6 +255,18 @@ $half-edge: .5em;
       background-color: $medblack; //#203A43;
     }  
     }
+    &.stone {
+    .cube__face:nth-child(1) {
+      background-color: $lightstone; //#2C5364;
+    }
+    .cube__face:nth-child(2) {
+      background-color: $darkstone; //#0F2027;
+    }
+    .cube__face:nth-child(3) {
+      background-color: $medstone; //#203A43;
+    }  
+    }
+    
     
   }
 </style>
