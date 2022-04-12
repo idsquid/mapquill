@@ -1,16 +1,16 @@
-# <img src="/public/image-turtle.png" width="75" height="75"> an isometric icon plotter
+# <img src="/public/image-turtle.png" width="75" height="75"> a three-dimensional icon plotter
 
-This application is an answer to the question of how to represent landmarks meaningfully on a digital map. Maps are two-dimensional, on paper as well as on the screen, but our screens allow us to resize them to incredible degrees. For example, the map in the [demo][demo] below can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
+This application is an answer to the question of how to represent landmarks meaningfully on a digital map. Our screens allow us to resize our maps to incredible degrees. For example, the map in the [demo][demo] can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
 
-The first step in keeping landmarks accessible across zoom levels is to draw them the same size no matter what. And if you only have one per continent, that's enough. This application attempts to address the problem of displaying icons that would otherwise occupy the same pixel, by rendering them in an isometric cluster. [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] are the brilliant tools that make the UI possible, while [Open Street Maps][osm] provides the landscape.
+The first step in keeping landmarks accessible across zoom levels is to draw them the same size no matter what. And if there is only one, that's enough. This application attempts to address the problem of displaying many icons that would otherwise occupy the same pixel, by rendering them in a three-dimensional cluster. [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] are the brilliant tools that make the UI possible, while [Open Street Maps][osm] provides the landscape.
 
 ## Demo
 
-Here I've chosen a handful of landmarks in downtown Chicago to represent with isometric block buildings, as well as flat photos. Depending on the map's zoom level they either appear as clickable icons with content hidden inside, or clusters that function as "zoom in" buttons. My hope is that the user will find the map useful and accessible at any zoom.
+Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons. My hope is that the user will find the map both useful and accessible at any zoom.
 
 [downtown Chicago demo][demo]
 
-This demo was built in [Vue][vue] using a tiny "backend" that gives the user the ability to create, edit, and destroy the little block buildings at will. Unfortunately the demo will not save your changes, but feel free to play around, and if you would like to [contribute](#contributing) to this map, or another like it, [let me know][tradbot].
+This demo includes a tiny "backend" that gives the user the ability to create, edit, and destroy the little block buildings at will. Unfortunately the demo will not save your changes, but feel free to play around, and if you would like to [contribute](#contributing) to this map, or another like it, [let me know][tradbot].
 
 ## Table of Contents
 
