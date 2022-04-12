@@ -16,6 +16,7 @@ src/views/web/sections/map/LeafletClusterTimeline.vue
 node_modules/
 depreciated/
 gatheredAssets/
+gathered assets/
 local/
 
 #
