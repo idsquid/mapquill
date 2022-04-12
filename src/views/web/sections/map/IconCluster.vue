@@ -70,10 +70,10 @@ export default Vue.extend({
         
         for (var i=0; i<source.length; i++) {
           const marker = source[i],
-                content = this.store.getters['posts/contentById'](marker.options.audioId),
+                content = this.store.getters['posts/contentById'](marker.options.audioId, 'image'),
                 theStructure = this.store.getters['posts/structureById'](marker.options.audioId)
           
-          if (allContent.length < contentLimit && content.length && theStructure.cubeScale > 720 && content[0].mimeType == 'image') {
+          if (allContent.length < contentLimit && content.length && theStructure.cubeScale > 720) {
               const imageStructure = {
                 cubeData:anImageStructure(content[0]),
                 cubeScale:1,
@@ -81,7 +81,8 @@ export default Vue.extend({
                   lat: theStructure.audioLatLng.lat,
                   lng: theStructure.audioLatLng.lng
                 },
-                audioPostType: 'home'
+                audioPostType: 'home',
+                cubeDataLoaded: true
               }
               allContent = allContent.concat(imageStructure)
           }

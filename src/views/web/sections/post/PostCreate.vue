@@ -65,7 +65,7 @@
               audioFile: this.file,
               audioUrl: this.fileUrl
             })
-      
+      console.log(newPost)
       this.$store.commit('posts/addPost', newPost)
       
       this.file = null

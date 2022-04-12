@@ -181,8 +181,8 @@ export default new Vuex.Store({
       const n = state.activeLoading.length + 1
       return 'Uploading ' + n + '... ' + state.loadingMsg
     },
-    useRemoteDatabase(state, getters) {
-      return state.remotePosts && getters['user/currentMap'] != 'public'
+    useRemoteDatabase(state) {
+      return state.remotePosts // && getters['user/currentMap'] != 'public'
     },
     userQuillSelectedId: state => {
       return state.quillSelectedId

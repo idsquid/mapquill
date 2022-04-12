@@ -130,17 +130,10 @@ const mutations = {
     },
   addPost(state, value) {
     /* push created audio */
-    if (value.audioPostType == 'home') {
-      console.log('posts addPost should not be here')
-      //state.newestAudioPost = new AuwalkPost({}) // resets builder
-    }
-    
-    if (value.audioPostType == 'home') {
-      state.allAudioPosts.push(value)
+   if (value.audioPostType == 'home') {
       state.newStructureReadyForMap = value
-    } else {
-      state.allAudioPosts.push(value)
     }
+    state.allAudioPosts = [...state.allAudioPosts, value]
   },
   addNewStructureOLD(state, id) {
     if (id != state.newestAudioPost.audioId) {
@@ -275,7 +268,7 @@ const actions = {
       return post.cubeData
     }
   },
-  async createStructure({state, commit, dispatch, rootGetters}) {
+  async createStructure({commit, dispatch, rootGetters}) {
     // CREATE POST AND ADD TO MAP
     const latLng = rootGetters['quill/latLng'],
           newPost = new AuwalkPost({
@@ -286,8 +279,9 @@ const actions = {
             cubeDataLoaded: true
           })
     //
-    state.allAudioPosts.push(newPost)
-    state.newStructureReadyForMap = newPost // triggers LeafletClusterMap watcher
+    //state.allAudioPosts.push(newPost)
+    //state.newStructureReadyForMap = newPost // triggers LeafletClusterMap watcher
+    commit('addPost', newPost)
     
     // SAVE IT
     if (rootGetters.useRemoteDatabase) {

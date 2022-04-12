@@ -1,5 +1,6 @@
 <template>
   <div class="popup-content" :class="viewClass" v-if="thePost && allChildPosts.length">
+    <h2 v-if="thePost.audioTitle">{{ thePost.audioTitle }}</h2>
     <div id="app-busy" v-show="!thePost || store.state.activeLoading.length">
       <v-icon name="spinner" spin></v-icon>
     </div>
@@ -36,11 +37,17 @@
     
 
  </div>
+
 <div class="popup-content no-content" v-else>
-  <span>
-      nothing here, yet
+  <div class="post-title" v-if="thePost && thePost.audioTitle">
+    <h2>{{ thePost.audioTitle }}</h2>
+  </div>
+  <span class="nothing-here-yet">
+      (nothing here, yet)
     </span>
 </div>
+
+
     
 </template>
 
@@ -64,6 +71,9 @@ export default Vue.extend({
       popup: null,
       useAudioGraph: false
     }
+  },
+  updated() {
+    this.updatePopup()
   },
   computed: {
     isAdmin() {
@@ -113,6 +123,11 @@ export default Vue.extend({
 <style lang="scss">
   .popup-content {
     font-size: 12px;
+  }
+  .nothing-here-yet {
+    width: 100%;
+    text-align: center;
+    display: block;
   }
   
   

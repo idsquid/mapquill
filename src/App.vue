@@ -17,7 +17,7 @@
     data: function() {
       return {
         loading: true,
-        isDemo: false,
+        isDemo: false, // allows download of posts, etc.
         allowDownload: true
       }
     },
@@ -25,6 +25,7 @@
       // DOWNLOAD POSTS
       if (this.$store.getters['user/currentMap'] == 'demo') {
         console.log('loading demo')
+        console.log(DEMOPOSTS.length + ' demo posts')
         this.$store.commit('posts/addAudioPosts', DEMOPOSTS)
       }
       else if (this.$store.getters.useRemoteDatabase) {
@@ -51,12 +52,16 @@
             exportablePosts = [],
             data = 'export const DEMOPOSTS = '
         raw.forEach(post => {
-          post.audioUrl = 'https://tradbot.com/demo/dist/'
-          post.audioFile = null // prevent txt caching
-          post.fileKey = null // no need for this in the demo
-          exportablePosts.push(new AuwalkPost(post))
+          let dpost = new AuwalkPost(post)
+          //
+          if (post.audioPostType == 'home') post.audioUrl = null
+          dpost.audioFile = null // prevent txt caching
+          dpost.fileKey = null // no need for this in the demo
+          dpost.cubeDataLoaded = true
+          //
+          exportablePosts.push(dpost)
         })
-        data += JSON.stringify(exportablePosts)    
+        data += JSON.stringify(exportablePosts, null, 0)    
         // BUILD DATA FINISHED
 
           var type = 'javascript',
