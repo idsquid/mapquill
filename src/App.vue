@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <p v-if="demoMsg" class="demo-message">Welcome to Chicago! Feel free to make changes, create, edit, destroy. This is just a demo, so your changes will not be saved. <a @click="demoMsg = false">CLOSE</a></p>
     <keep-alive> 
       <router-view v-if="!loading"></router-view>
       <div v-else class="loading-screen">loading...</div>
@@ -18,14 +19,12 @@
       return {
         loading: true,
         isDemo: false, // allows download of posts, etc.
-        allowDownload: true
+        demoMsg: false
       }
     },
     async created() {
       // DOWNLOAD POSTS
       if (this.$store.getters['user/currentMap'] == 'demo') {
-        console.log('loading demo')
-        console.log(DEMOPOSTS.length + ' demo posts')
         this.$store.commit('posts/addAudioPosts', DEMOPOSTS)
       }
       else if (this.$store.getters.useRemoteDatabase) {
@@ -88,4 +87,24 @@
 
 <style lang="scss">
   @import "@/css/boilerplate.scss";
+  
+  .demo-message {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    left: 0;
+    z-index: 999;
+    width: 90%;
+    max-width: 600px;
+    background: #000000ee;
+    color: white;
+    padding: 2em;
+    a {
+      padding: .25em;
+      background: white;
+      position: relative;
+      top: 5px;
+      left: 5px;
+    }
+  }
 </style>
