@@ -1,4 +1,4 @@
-# <img src="/public/image-turtle.png" width="75" height="75"> a three-dimensional icon plotter
+# <img src="/public/image-turtle.png" width="75" height="75"> an isometric icon plotter
 
 This application is an answer to the question of how to represent landmarks meaningfully on a digital map. Our screens allow us to resize our maps to incredible degrees. For example, the map in the [demo][demo] can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
 
