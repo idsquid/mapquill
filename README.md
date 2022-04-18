@@ -1,9 +1,5 @@
 # <img src="/public/image-turtle.png" width="75" height="75"> an isometric icon plotter
 
-This application is an answer to the question of how to represent landmarks meaningfully on a digital map. Our screens allow us to resize our maps to incredible degrees. For example, the map in the [demo][demo] can zoom from 2 yards per pixel, to 12 *miles* per pixel. That's amazing, but volumes of detail are lost when we zoom out that far. Streets and lakes are compressed into solid colors, and traditionally landmarks are subsumed completely.
-
-The first step in keeping landmarks accessible across zoom levels is to draw them the same size no matter what. And if there is only one, that's enough. This application attempts to address the problem of displaying many icons that would otherwise occupy the same pixel, by rendering them in a three-dimensional cluster. [Leaflet][leaflet] and [Leaflet Clusterer][clusterer] are the brilliant tools that make the UI possible, while [Open Street Maps][osm] provides the landscape.
-
 ## Demo
 
 Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons. My hope is that the user will find the map both useful and accessible at any zoom.
@@ -15,7 +11,7 @@ This demo includes a tiny "backend" that gives the user the ability to create, e
 ## Table of Contents
 
 1. [Installation](#installation)
-2. [Building Icons](#building-icons)
+2. [Demo Walkthrough](#demo-walkthrough)
 3. [Contributing](#contributing)
 
 ## Installation
@@ -29,24 +25,9 @@ npm run serve
 
 Amazing, when it works. If it doesn't (but it should) please let me know by [contributing](#contributing).
 
-## Building Icons
+## Demo Walkthrough
 
-MQ is just in its first prototype. The "backend" UI/UX is miles away from complete, but here I've recorded a little [walkthrough][walkthrough], and outlined the basic mechanics below...
-
-1. <img src="/public/icon-feather.png" width="35" height="35"> The quill at the top of your screen opens the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
-2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map.
-3. <img src="/public/icon-edit.png" width="35" height="35"> Click the new marker; it has a new popup. The edit symbol leads to its edit screen.
-4. <img src="/public/icon-map.png" width="35" height="35">  This button will bring you back to the map. But first...
-
-### Editing the Icon
-
-<img src="/public/icon-pin.png" width="35" height="35"> New markers appear as pins. But if you visit the pin's edit screen, and click **add new**, the icon can display an image instead. The **edit** link below the icon preview will take you to a new page, where you can realign things, or go to...
-
-### Voxel Mode
-
-<img src="/public/image-voxels.png" width="300" height="151">
-
-Yes, this is where things get weird. "Voxel" is a play on "Pixel", except that instead of representing *pictures* they represent *volume*. Call it something craftier if you want, but this is where the pandemic took me. Mapquill includes a minecraft-esque interface where the sky's the limit. Build a house, or a boat, or a tree. Get literal or go abstract. My thinking is that one day we can share and reuse these creations, but for now this just a fun way to represent landmarks on a map at home alone with your isometer. 
+https://www.youtube.com/watch?v=KK8xocO-UvE
 
 ## Contributing
 
