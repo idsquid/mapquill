@@ -8,15 +8,9 @@ This application explores the concept of preserving landmarks online. It uses ma
 
 Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons.
 
-[downtown Chicago demo][demo]
+[Downtown Chicago Demo][demo]
 
-This demo includes a tiny "backend" that gives the user the ability to create, edit, and destroy the little block buildings at will. Unfortunately the demo will not save your changes, but feel free to play around, and if you would like to [contribute](#contributing) to this map, or another like it, [let me know][tradbot].
-
-## Table of Contents
-
-1. [Installation](#installation)
-2. [Demo Walkthrough](#demo-walkthrough)
-3. [Contributing](#contributing)
+[Demo Walkthrough Video](https://www.youtube.com/watch?v=KK8xocO-UvE)
 
 ## Installation
 
@@ -28,10 +22,6 @@ npm run serve
 ```
 
 Amazing, when it works. If it doesn't (but it should) please let me know by [contributing](#contributing).
-
-## Demo Walkthrough
-
-https://www.youtube.com/watch?v=KK8xocO-UvE
 
 ## Contributing
 
