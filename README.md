@@ -1,5 +1,9 @@
 # <img src="/public/image-turtle.png" width="75" height="75"> an isometric icon plotter
 
+• [Leaflet Maps][leaflet] • [Leaflet Clusterer][clusterer] • [Open Street Maps][osm] • [Vue][vue] •
+
+This application explores the concept of preserving landmarks online. It uses maps, which are a tricky medium. And the internet, which until very recently was a mess. Ha. It's made possible by React, which changed everything. 
+
 ## Demo
 
 Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons. My hope is that the user will find the map both useful and accessible at any zoom.
