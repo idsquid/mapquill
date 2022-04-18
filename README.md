@@ -31,6 +31,8 @@ Amazing, when it works. If it doesn't (but it should) please let me know by [con
 
 ## Building Icons
 
+MQ is just in its first prototype. The "backend" UI/UX is miles away from complete, but here I've recorded a little [walkthrough][walkthrough], and outlined the basic mechanics below...
+
 1. <img src="/public/icon-feather.png" width="35" height="35"> The quill at the top of your screen opens the map editor. **Tip:** Center your map first by pinching/scrolling/dragging, and zooming in on your location of interest. You can then drag-and-drop the quill marker to its final spot.
 2. <img src="/public/icon-popup.png" width="35" height="35"> A popup appears. Clicking "Do That" will add a new marker to the map.
 3. <img src="/public/icon-edit.png" width="35" height="35"> Click the new marker; it has a new popup. The edit symbol leads to its edit screen.
@@ -65,6 +67,7 @@ Thanks for reading!
 Mapquill is licensed under the General Public Use License.
 
 [demo]: https://tradbot.com/demo/dist/#/demo
+[walkthrough]: https://youtu.be/cmVcqWPfAF0
 [invite]: https://discord.gg/Nu5YuwTd9K
 [issues]: https://github.com/idsquid/mapquill/issues
 [vue]: https://vuejs.org/
