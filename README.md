@@ -6,11 +6,11 @@ This application explores the concept of preserving landmarks online. It uses ma
 
 ## Demo
 
-Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons.
+Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons:
 
 [Downtown Chicago Demo][demo]
 
-[Demo Walkthrough Video](https://www.youtube.com/watch?v=KK8xocO-UvE)
+[Demo Walkthrough](https://www.youtube.com/watch?v=KK8xocO-UvE)
 
 ## Installation
 
