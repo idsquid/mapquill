@@ -2,7 +2,7 @@
 
 • [Leaflet Maps][leaflet] • [Leaflet Clusterer][clusterer] • [Open Street Maps][osm] • [Vue][vue] •
 
-This application explores the concept of preserving landmarks online. It uses maps, which are a tricky medium. And the internet, which until very recently was a mess. Ha. It's made possible by React, which changed everything. 
+This application explores the concept of preserving landmarks online. It uses maps, which are a tricky medium. And the internet, which until very recently was a mess. Ha. It's made possible by [Reactivity](https://v2.vuejs.org/v2/guide/reactivity.html?redirect=true), which changed everything. 
 
 ## Demo
 
