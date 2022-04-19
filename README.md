@@ -2,7 +2,7 @@
 
 • [Leaflet Maps][leaflet] • [Leaflet Clusterer][clusterer] • [Open Street Maps][osm] • [Vue][vue] •
 
-This application explores the concept of preserving landmarks online. It uses maps, which are a tricky medium. And the internet, which until very recently was a mess. Ha. It's made possible by [Reactivity](https://v2.vuejs.org/v2/guide/reactivity.html?redirect=true), which changed everything. 
+This application explores the concept of representing landmarks online. It uses digital maps, which are a tricky medium. A typical map online can zoom from one yard per pixel, out to twelve *miles* per pixel. Clustering utilities like [Leaflet Clusterer][clusterer] solve many of the UI problems associated with such a dynamic landscape, but not all of them. Mapquill attempts to fill in the gaps by rendering landmarks in three dimensions, using photos and isometric cubes.
 
 ## Demo
 
