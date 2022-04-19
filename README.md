@@ -2,11 +2,11 @@
 
 • [Leaflet Maps][leaflet] • [Leaflet Clusterer][clusterer] • [Open Street Maps][osm] • [Vue][vue] •
 
-This application explores the concept of representing landmarks online. It uses digital maps, which are a tricky medium. A typical map online can zoom from one yard per pixel, out to twelve *miles* per pixel. Clustering utilities like [Leaflet Clusterer][clusterer] solve many of the UI problems associated with such a dynamic landscape, but not all of them. Mapquill attempts to fill in the gaps by rendering landmarks in three dimensions, using photos and isometric cubes.
+Mapquill is an icon builder and navigation tool. It allows editors to build digital landmarks using images and/or voxel shapes (like the turtle above), and embed media content inside. This version is considered "front-end ready". It includes a nice voxel editor, but the CMS needs some work.
 
 ## Demo
 
-Here I've chosen a handful of landmarks in downtown Chicago. Depending on the map's zoom level they either appear as clickable icons, with content hidden inside, or as clusters that function like zoom buttons:
+Here I've built a handful of landmarks in downtown Chicago:
 
 [Downtown Chicago Demo][demo]
 
@@ -21,19 +21,11 @@ npm install
 npm run serve
 ```
 
-Amazing, when it works. If it doesn't (but it should) please let me know by [contributing](#contributing).
+Amazing, when it works.
 
 ## Contributing
 
-Contributions are welcome!
-
-This was a side project that took shape during covid lockdown. I never intended to build *this exact thing* so while Vue's structure/philosophy/patterning helps, the code itself is rough and ready. I've started using Github's [issue tracker][issues], but anyone with interest in supporting this project should reach out via my [website][tradbot], or video...
-
-> I'm available to chat about maps, code, etc. every first and third Monday, 11:00am Central Standard Time
-> and you're invited! [Click here to join the message board][invite].
-> Hope to see you there.
-
-...where we can talk through the code, I can point out its features and bugs, and maybe we build some little block buildings together.
+Contributions are welcome! My next steps are to polish up the "back-end" UX, and to enlist volunteers to build maps of their own. I'd love to know what works for people and what doesn't.
 
 Thanks for reading!
 
