@@ -10,7 +10,7 @@ Here I've chosen a handful of landmarks in downtown Chicago. Depending on the ma
 
 [Downtown Chicago Demo][demo]
 
-[Demo Walkthrough](https://www.youtube.com/watch?v=KK8xocO-UvE)
+[Demo Walkthrough](https://youtu.be/6sjsThiuwak)
 
 ## Installation
 
